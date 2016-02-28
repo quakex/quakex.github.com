@@ -1,0 +1,799 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,note,swift," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="第一章 Welcome to the Swift Jungle 欢迎入Swift的坑iOS 开发的各种限制
+Only One Window  
+Only One Active Application  有严格的限制，有利有弊，总体而言，利大于弊。  
+Limited Access, sandbox 机制
+Limited Response Time， 假如用户按了Home键，在iOS停止你的程序前，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Beginning iPhone Development with Swift》笔记（未完待续）">
+<meta property="og:url" content="http://quakex.github.io/2015/03/16/Beginning-iPhone-Development-with-Swift-note/index.html">
+<meta property="og:site_name" content="徐林的博客">
+<meta property="og:description" content="第一章 Welcome to the Swift Jungle 欢迎入Swift的坑iOS 开发的各种限制
+Only One Window  
+Only One Active Application  有严格的限制，有利有弊，总体而言，利大于弊。  
+Limited Access, sandbox 机制
+Limited Response Time， 假如用户按了Home键，在iOS停止你的程序前，">
+<meta property="og:updated_time" content="2015-06-21T13:48:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Beginning iPhone Development with Swift》笔记（未完待续）">
+<meta name="twitter:description" content="第一章 Welcome to the Swift Jungle 欢迎入Swift的坑iOS 开发的各种限制
+Only One Window  
+Only One Active Application  有严格的限制，有利有弊，总体而言，利大于弊。  
+Limited Access, sandbox 机制
+Limited Response Time， 假如用户按了Home键，在iOS停止你的程序前，">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 《Beginning iPhone Development with Swift》笔记（未完待续） | 徐林的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">徐林的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《Beginning iPhone Development with Swift》笔记（未完待续）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-03-16T16:20:04+08:00" content="2015-03-16">
+              2015-03-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/16/Beginning-iPhone-Development-with-Swift-note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/16/Beginning-iPhone-Development-with-Swift-note/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第一章-Welcome-to-the-Swift-Jungle-欢迎入Swift的坑"><a href="#第一章-Welcome-to-the-Swift-Jungle-欢迎入Swift的坑" class="headerlink" title="第一章 Welcome to the Swift Jungle 欢迎入Swift的坑"></a>第一章 Welcome to the Swift Jungle 欢迎入Swift的坑</h1><h2 id="iOS-开发的各种限制"><a href="#iOS-开发的各种限制" class="headerlink" title="iOS 开发的各种限制"></a>iOS 开发的各种限制</h2><ol>
+<li>Only One Window  </li>
+<li>Only One Active Application  有严格的限制，有利有弊，总体而言，利大于弊。  </li>
+<li>Limited Access, sandbox 机制</li>
+<li>Limited Response Time， 假如用户按了Home键，在iOS停止你的程序前，你必须在后台迅速的保存一切。假如时间过长（5秒？），你的程序进程键被杀死，不管你是否保存完毕。这有一个API可以申请额外的时间，但建议不要用。是虾米？  </li>
+<li><p>Limited System Resources<br> Cocoa Touch 有内建的机制让你的程序侦测到『内存过低』这种情况，这时，你必须释放不需要的内存，或退出程序。  </p>
+</li>
+<li><p>Limited Screen Size  </p>
+</li>
+</ol>
+<p><del>~这里有张图</del>~</p>
+<p>这是个什么意思？骚年，你不需要明白，iOS在后台会自动完成这些像素变换。<br>还是详述一下：</p>
+<a id="more"></a>   
+<p>iPhone 4、4S 时期需要程序员、UI做什么：准备两套图：~.png 和 ~@2x.png。系统根据机器的分辨率自动决定使用哪张图片。  </p>
+<p>iPhone 5 之后：机子拉长了88个点，注意这里是点，不是像素，所以还用4时期的做法，会导致程序图片高度不够。如果程序未做适配，程序会有上下两个黑边。AutoLayout的出现就是为了解决这个问题。还是准备两张图，@2x.png的大小为640*1136，这样该图在4S上显示时会压缩。  </p>
+<p>iPhone 6 之后： 屏幕增大，但高宽比例不变。所以和5处理方法相同，只是@2x.png的规格推荐为750*1334,这样，在小机子上，系统会自动压缩图片。  </p>
+<p>iPhone 6 Plus之后： 坐标：像素 = 1:2.6。 物理分辨率没有达到3x，但iOS系统会假装达到3x也就是1242<em>2208的分辨率。414</em>736 就是除以3得来的。这些都不重要，作为程序员和UI设计师你所要知道的是：设计师画图的时候要把屏幕当成 1242 x 2208 来画图（要提供@3x 的高清图），开发人员也按照 414 x 736 的逻辑分辨率来写程序。iOS 拿到这个假大的 UI 绘制结果，实时地再缩小到实际的 1080 x 1920 分辨率(系统通过某种算法)。于是，用户在 iPhone 6 Plus 的屏幕上看到的永远是被缩小了的图像。  </p>
+<p>推荐阅读：</p>
+<p><a href="http://yongyao.li/blog/article/iphone-6-and-6-plus-screen-and-ui" target="_blank" rel="external">iPhone 6和6Plus屏幕、UI设计和适配那些事</a><br><a href="http://www.zhihu.com/question/25361043/answer/30666828" target="_blank" rel="external">知乎：iPhone 6 Plus的逻辑分辨率为什么是414x736？</a></p>
+<p>我好像还是没讲明白。:-(</p>
+<h1 id="第二章-Hello-World"><a href="#第二章-Hello-World" class="headerlink" title="第二章 Hello World"></a>第二章 Hello World</h1><h2 id="Auto-Layout"><a href="#Auto-Layout" class="headerlink" title="Auto Layout"></a>Auto Layout</h2><blockquote>
+<p>Back in iOS 6, Apple added a technology called Auto Layout, which lets you add constraints to the views in your design that express how they should change position and/or size to adapt to the space that’s actually available on screen. </p>
+</blockquote>
+<p>这个技术的核心：描述各视图（控件）之间的关系。</p>
+<hr>
+<h1 id="第三章-Handling-Basic-Interaction-处理基本交互"><a href="#第三章-Handling-Basic-Interaction-处理基本交互" class="headerlink" title="第三章  Handling Basic Interaction 处理基本交互"></a>第三章  Handling Basic Interaction 处理基本交互</h1><h2 id="Outlet-and-Action"><a href="#Outlet-and-Action" class="headerlink" title="Outlet and Action"></a>Outlet and Action</h2><blockquote>
+<p>A controller class can refer to objects in a storyboard or nib file by using a special kind of property called an outlet.</p>
+</blockquote>
+<p>Outlet 变量就是程序世界通往现实世界的那个电话。  </p>
+<h2 id="控件变量的声明"><a href="#控件变量的声明" class="headerlink" title="控件变量的声明"></a>控件变量的声明</h2><pre><code>@IBOutle weak var myButton:UIButton!  
+</code></pre><p>weak：没人要时，会赋值为nil。所以很weak，自杀都没力气。  </p>
+<p><code>!</code>会隐式解绑optional 变量。  </p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/note/" rel="tag">#note</a>
+          
+            <a href="/tags/swift/" rel="tag">#swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/14/Git-Summarize/" rel="next" title="Git 总结">
+                <i class="fa fa-chevron-left"></i> Git 总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/23/Man-s-situation/" rel="prev" title="知乎好文--《人的格局》">
+                知乎好文--《人的格局》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/03/16/Beginning-iPhone-Development-with-Swift-note/"
+           data-title="《Beginning iPhone Development with Swift》笔记（未完待续）" data-url="http://quakex.github.io/2015/03/16/Beginning-iPhone-Development-with-Swift-note/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="徐林" />
+          <p class="site-author-name" itemprop="name">徐林</p>
+          <p class="site-description motion-element" itemprop="description">专注失败二十年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/quakexx" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> twitter
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-Welcome-to-the-Swift-Jungle-欢迎入Swift的坑"><span class="nav-number">1.</span> <span class="nav-text">第一章 Welcome to the Swift Jungle 欢迎入Swift的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-开发的各种限制"><span class="nav-number">1.1.</span> <span class="nav-text">iOS 开发的各种限制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-Hello-World"><span class="nav-number">2.</span> <span class="nav-text">第二章 Hello World</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Auto-Layout"><span class="nav-number">2.1.</span> <span class="nav-text">Auto Layout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-Handling-Basic-Interaction-处理基本交互"><span class="nav-number">3.</span> <span class="nav-text">第三章  Handling Basic Interaction 处理基本交互</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Outlet-and-Action"><span class="nav-number">3.1.</span> <span class="nav-text">Outlet and Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控件变量的声明"><span class="nav-number">3.2.</span> <span class="nav-text">控件变量的声明</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐林</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"quakex"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

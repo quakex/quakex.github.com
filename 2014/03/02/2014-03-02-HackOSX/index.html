@@ -1,0 +1,795 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="OSX," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="我的笔记本是双系统:win7+OSX。老婆使用了两天win7后，发现不能进入Mac。变色龙正常，进入Mac系统后显示一个以前没有的进度条，然后重启。win7 MacDriver 报 “Mac volume may be damaged”，使用 Disk Genius 显示磁盘标识为07 NTFS，而不是 AF。
+当时手头没有 Mac 的启动盘，血的教训，一定要准备一个启动盘！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="修复 OS X 总结">
+<meta property="og:url" content="http://quakex.github.io/2014/03/02/2014-03-02-HackOSX/index.html">
+<meta property="og:site_name" content="徐林的博客">
+<meta property="og:description" content="我的笔记本是双系统:win7+OSX。老婆使用了两天win7后，发现不能进入Mac。变色龙正常，进入Mac系统后显示一个以前没有的进度条，然后重启。win7 MacDriver 报 “Mac volume may be damaged”，使用 Disk Genius 显示磁盘标识为07 NTFS，而不是 AF。
+当时手头没有 Mac 的启动盘，血的教训，一定要准备一个启动盘！">
+<meta property="og:updated_time" content="2015-03-24T07:42:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="修复 OS X 总结">
+<meta name="twitter:description" content="我的笔记本是双系统:win7+OSX。老婆使用了两天win7后，发现不能进入Mac。变色龙正常，进入Mac系统后显示一个以前没有的进度条，然后重启。win7 MacDriver 报 “Mac volume may be damaged”，使用 Disk Genius 显示磁盘标识为07 NTFS，而不是 AF。
+当时手头没有 Mac 的启动盘，血的教训，一定要准备一个启动盘！">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 修复 OS X 总结 | 徐林的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">徐林的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                修复 OS X 总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-03-02T23:25:10+08:00" content="2014-03-02">
+              2014-03-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/折腾/" itemprop="url" rel="index">
+                    <span itemprop="name">折腾</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/03/02/2014-03-02-HackOSX/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/02/2014-03-02-HackOSX/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>我的笔记本是双系统:win7+OSX。老婆使用了两天win7后，发现不能进入Mac。变色龙正常，进入Mac系统后显示一个以前没有的进度条，然后重启。win7 MacDriver 报 “Mac volume may be damaged”，使用 Disk Genius 显示磁盘标识为07 NTFS，而不是 AF。</p>
+<p>当时手头没有 Mac 的启动盘，血的教训，一定要准备一个启动盘！</p>
+<a id="more"></a>  
+<p>先直接在 win7下拷贝备份的 boot，kernel，extra 等到 mac 分区，故障依旧。怀疑是分区问题。想更改 AF，被 MacDriver 禁止。</p>
+<p>得想办法重做一个 Mac启动盘，恢复 Time Machine 。</p>
+<p>开始制作启动盘。查询 pcbeta 远景论坛，使用 Bootdisk Utility 写入 MACPE，黑屏，不能启动。-f -x 依旧。</p>
+<p>更改 MACPE，导入自己的 Extra，Extensions，重启出错。</p>
+<p>显示：“Can’t find mach_kernel”，拷贝一个 kernel 还是没能解决。</p>
+<p>安装 win 变色龙，系统不能启动，显示 Avlgo 错误。win 7也进不去。</p>
+<p>用大白菜做了一个启动盘。</p>
+<p>按照远景变色龙4k硬盘安装教程中的第二种方法安装 boot1h，dd。win7能启动但启动不久就直接蓝屏重启。</p>
+<p>原因：没有仔细看变色龙安装教程，安装方法不对。安装 win 变色龙后要根据win7所在分区选择 Avlgo 文件，比如我的 win7安装在第一个硬盘的第三个分区，需要 copy 第三个文件夹中的 Avlgo 到 win7 C: 根目录替换原来的文件。这样就可以进入变色龙然后启动Win7。这里是 win 版的变色龙。</p>
+<p>用打补丁的提取方法制作 Mac 启动盘，失败，不能启动。看 mac 分区文件，感觉不对，懒得折腾，直接下懒人版。</p>
+<p>用老办法下载懒人版 Mac 安装盘。使用BootDisk Utility 写入。替换自己的 Extra，可以启动安装界面。</p>
+<p>卸载 Mac Driver，这货简直就是个渣，改用HFS+。好用多了。</p>
+<p>使用懒人版安装盘启动后运行 time Machine 恢复原来的备份，报 boot0：test  boot0：error。不能启动。怀疑分区表坏。</p>
+<p>用大白菜启动盘可以找到Mac分区进入，but 无限菊花。</p>
+<p>-v，显示 Waiting for DSMOS 停住。</p>
+<p>删除，替换 FakeSMC.kext，故障依旧。</p>
+<p>time Machine 恢复失败，shit！重新安装。</p>
+<p>重装后替换 extra。-v -f -x 可以进入，安装 Mac 版变色龙，使用最新版变色龙。少了 dd 那一步，似乎之前做过还能起作用。</p>
+<p>使用迁移助理，效果不好，放弃，继续重装。蛋疼啊。</p>
+<p>安装完成后，进入Mac系统声卡，网卡，触摸板，电池驱动不正常。</p>
+<p>替换原来备份的驱动，还是不行。</p>
+<p>怀疑变色龙可能影响驱动。（后判断应该不影响，还是驱动安装不正确）</p>
+<p>不知道哪些驱动可以解决问题，直接替换原来的所有驱动，又进不去系统。直接停住，没有菊花，日啊！</p>
+<p>删除 S/L/Cache/com.apple.kext.caches/Startup/ 全部文件，还是不能进入。</p>
+<p>安装驱动，不能进入，恢复原生驱动能进入，邪门。</p>
+<p>使用 Kext Utility 安装驱动，虽然安装较慢，而且只能一个一个的装，但是，目前这种方法有效，其它方法估计也行，但我实在是懒得折腾了。</p>
+<p>根据文件名和 google，一个一个的试 kext 驱动。总结如下:</p>
+<p>触摸板驱动：AppleACPIPS2Nub.kext， ApplePS2Controller.kext.</p>
+<p>网卡，无线网卡：BCM5722D, IO80211Family, IONetworkingFamily.</p>
+<p>声卡：AppleHDA 只有耳机有声音，继续替换 IOAudioFamily 搞定。</p>
+<p>电池：AppleACPIPlatform.kext, AppleACPIBatteryManager, SmartBattery. 都安装了，发现第一个管用。</p>
+<p>至此全部搞定。</p>
+<p><strong>总结</strong>：首先要有一个启动盘，win + mac。启动盘的制作可以用原版，但要替换内核，麻烦，还是直接下懒人版，将懒人版镜像写入安装分区或磁盘。copy extra。</p>
+<p>安装变色龙，严格按照说明安装。</p>
+<p>安装驱动。用kext Utility 这种最笨的方法。</p>
+<p>后记：升级10.9.2，升级完后除了声卡不能驱动一切正常，重新安装声卡的两个 kext 后解决。我的4741g已经完美。</p>
+<p>后后记：这篇文章是两个星期前写的，当时只是想记录一下便于以后查询。现在放在 blog 上，因为，我又决定写 blog 了，好吧，这次是真的。<br>黑苹果没什么技术含量，改 dsdt 也不过尔尔，关键是细心和耐心。需要不停的尝试，然后根据故障现象来判断、更改、再尝试，不停的重启修改，直至完全解决，这绝对是一件无比蛋疼的事。所以，最后我想说一句：珍爱生命，远离黑苹果！至于为什么要用黑苹果，Windows 不好吗？是的，等你用习惯了 OS X，你会觉得 Windows 确实一般。后面我会写篇文章详述，先挖个坑吧。</p>
+<p>好了，git push，睡觉了。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OSX/" rel="tag">#OSX</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/08/01/2013-08-01-myPhone/" rel="next" title="手机那些事">
+                <i class="fa fa-chevron-left"></i> 手机那些事
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/31/bye2014-hello2015/" rel="prev" title="再见，2014；你好，2015。">
+                再见，2014；你好，2015。 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/03/02/2014-03-02-HackOSX/"
+           data-title="修复 OS X 总结" data-url="http://quakex.github.io/2014/03/02/2014-03-02-HackOSX/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="徐林" />
+          <p class="site-author-name" itemprop="name">徐林</p>
+          <p class="site-description motion-element" itemprop="description">专注失败二十年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/quakexx" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> twitter
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐林</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"quakex"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

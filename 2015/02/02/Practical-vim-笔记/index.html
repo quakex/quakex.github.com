@@ -1,0 +1,896 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="note,vim," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="《Practical Vim》 是本非常好的Vim书。好好阅读，掌握编辑器之神。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Practical Vim》 笔记">
+<meta property="og:url" content="http://quakex.github.io/2015/02/02/Practical-vim-笔记/index.html">
+<meta property="og:site_name" content="徐林的博客">
+<meta property="og:description" content="《Practical Vim》 是本非常好的Vim书。好好阅读，掌握编辑器之神。">
+<meta property="og:image" content="http://vimcasts.org/images/practical-vim/practical-vim-cover-550.jpg">
+<meta property="og:updated_time" content="2016-02-28T10:32:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《Practical Vim》 笔记">
+<meta name="twitter:description" content="《Practical Vim》 是本非常好的Vim书。好好阅读，掌握编辑器之神。">
+<meta name="twitter:image" content="http://vimcasts.org/images/practical-vim/practical-vim-cover-550.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 《Practical Vim》 笔记 | 徐林的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">徐林的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《Practical Vim》 笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-02-02T00:27:16+08:00" content="2015-02-02">
+              2015-02-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/02/02/Practical-vim-笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/Practical-vim-笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://vimcasts.org/images/practical-vim/practical-vim-cover-550.jpg" alt=""></p>
+<p>《Practical Vim》 是本非常好的Vim书。好好阅读，掌握<strong>编辑器之神</strong>。<br><a id="more"></a>   </p>
+<h1 id="第一章-vim-解决问题的方式"><a href="#第一章-vim-解决问题的方式" class="headerlink" title="第一章 vim 解决问题的方式"></a>第一章 vim 解决问题的方式</h1><h2 id="tip-1-Meet-the-Dot-Command"><a href="#tip-1-Meet-the-Dot-Command" class="headerlink" title="tip 1 Meet the Dot Command"></a>tip 1 Meet the Dot Command</h2><ul>
+<li>灵活使用Dot Command。<br><strong><code>.</code> 能让我们重复上次的修改,它是 vim 中最强大的命令.</strong></li>
+</ul>
+<p>The dot command lets us repeat the last change. 注意，这里是 change。当你需要执行这次改变时，用<code>.</code>。</p>
+<p>这里的change 可以是字符、整行、甚至是整个文件。  </p>
+<p><code>G</code> 缩进到末尾<code>,&gt;</code> 是缩进，<code>G</code>是到文件末尾。<br><code>j.</code>  跳到下一行，再缩进<br><code>j.</code><br>很有用的命令，下一行继续刚做出的改变。如果要对编辑行做重复的动作，用这个就对了。要常用，多用，时时用。  </p>
+<p><strong> The Dot Command Is a Micro Macro. </strong>  </p>
+<p>change 时，要想到<code>.</code>  </p>
+<h2 id="tip-2-Don’t-Repeat-Yourself-不要重复"><a href="#tip-2-Don’t-Repeat-Yourself-不要重复" class="headerlink" title="tip 2 Don’t Repeat Yourself  不要重复"></a>tip 2 Don’t Repeat Yourself  不要重复</h2><p>在每行末尾加个<code>;</code>.肿么办？<code>A ；A；A；</code>，弱爆了，第一行用<code>A；</code>，后面的就用 <code>j.</code></p>
+<p><strong>上一条的原则：能用<code>.</code>时，尽量用<code>.</code>。</strong></p>
+<p><code>A;&lt;Esc&gt; j.</code> 注意这里的 <code>esc</code> ，完结一个操作。  </p>
+<p><code>;</code> 重复上一次查找。<br><code>.</code> 重复上一次修改。<br><code>;.</code> 两个组合在一起那是相当拉轰。  </p>
+<p><strong> 一键移动，一键操作。</strong> vim的精髓所在！</p>
+<h3 id="两个不如一个"><a href="#两个不如一个" class="headerlink" title="两个不如一个"></a>两个不如一个</h3><p>C   c$<br>s   cl<br>S   ^C<br>I   ^i<br>A   $a<br>o   A<cr><br>O   ko</cr></p>
+<h2 id="Tip-3-Take-One-Strp-Back-Then-Three-Forward-以退为进"><a href="#Tip-3-Take-One-Strp-Back-Then-Three-Forward-以退为进" class="headerlink" title="Tip 3  Take One Strp Back, Then Three Forward 以退为进"></a>Tip 3  Take One Strp Back, Then Three Forward 以退为进</h2><p>任务：给每个+前后加空格。<br><code>f+</code>  找到+号。<br><code>s空格+空格&lt;Esc&gt;</code> 以退为进表现在这里，这里是退，似乎多敲了键，但为了后面的方便。实为进。<br><code>;</code>   重复上次查找<br><code>.</code>   重复上次修改<br><code>;.</code>  重复上次重复</p>
+<h2 id="Tip-4-执行、重复、回退"><a href="#Tip-4-执行、重复、回退" class="headerlink" title="Tip 4  执行、重复、回退"></a>Tip 4  执行、重复、回退</h2><p>有些命令以其它方式重复：<br><code>@:</code> 可以重复任意Ex命令。<br><code>&amp;</code> 重复上次的:substitute 命令。  </p>
+<p>###可重复及回退的操作</p>
+<pre><code>{edit}            .       u
+f{char}/t{char}   ;       ,
+F/T               ;       ,
+/pattern&lt;CR&gt;      n       N
+?pattern&lt;CR&gt;      n       N
+:s/target/replace &amp;       u
+qx{changes}q      @x      u
+</code></pre><h2 id="Tip-5-Find-and-Replace-查找和替换"><a href="#Tip-5-Find-and-Replace-查找和替换" class="headerlink" title="Tip 5  Find and Replace 查找和替换"></a>Tip 5  Find and Replace 查找和替换</h2><p>全局替换 : </p>
+<pre><code>:%s/查找内容/替换内容/g  
+</code></pre><p>按需替换：  </p>
+<pre><code>/查找内容  
+&apos;*&apos;   查找当前光标下的单词。  
+cw 替换内容&lt;ESC&gt;  
+n  
+.  
+</code></pre><h2 id="Tip-6-结识-范式"><a href="#Tip-6-结识-范式" class="headerlink" title="Tip 6  结识 . 范式"></a>Tip 6  结识 <code>.</code> 范式</h2><p><strong>理想模式：一键移动，一键执行</strong><br>尽可能的用<code>.</code>代替修改。</p>
+<hr>
+<h1 id="第2章-Normal-Mode-普通模式"><a href="#第2章-Normal-Mode-普通模式" class="headerlink" title="第2章 Normal Mode 普通模式"></a>第2章 Normal Mode 普通模式</h1><p><strong>普通模式命令的强大，很大程度上源于它可以把操作符与动作命令结合在一起。 </strong></p>
+<h2 id="Tip-7-停顿时请移开画笔"><a href="#Tip-7-停顿时请移开画笔" class="headerlink" title="Tip 7 停顿时请移开画笔"></a>Tip 7 停顿时请移开画笔</h2><p><strong>不修改时，请保持在Normal Mode.</strong><br>Normal Mode 是使用vim时的常态。需要修改时才进入插入模式。  </p>
+<h2 id="Tip-8-把撤销单元切成块"><a href="#Tip-8-把撤销单元切成块" class="headerlink" title="Tip 8 把撤销单元切成块"></a>Tip 8 把撤销单元切成块</h2><p><strong>控制撤销的粒度</strong></p>
+<p><code>i{insert some text}&lt;Esc&gt;</code> 是一次修改。  </p>
+<p>** 要控制好对<code>Esc</code>的使用，就可使撤销命令作用于单词、句子或段落。</p>
+<p><strong> 让每个『可撤销块』对应一次思考过程。</strong>  </p>
+<p>每次停顿都是一个自然的中断点，提示我该退出插入模式，进入普通模式了。  </p>
+<p><code>&lt;CR&gt;</code> 用 <code>&lt;Esc&gt;o</code> 取代，代表的就是这种思想。  </p>
+<h2 id="Tip-9-构造可重复的修改"><a href="#Tip-9-构造可重复的修改" class="headerlink" title="Tip 9 构造可重复的修改"></a>Tip 9 构造可重复的修改</h2><p>任务：反向删除一个单词<br>    db  -&gt;  x<br>    b  -&gt;  dw<br>    daw  </p>
+<p>哪种方案最好？毫无疑问 <code>daw</code>，因为可以发挥<code>.</code>的最大威力。</p>
+<p><strong>aw : 文本对象 </strong>  </p>
+<p>多使文本对象。  </p>
+<h2 id="Tip-10-用次数做简单的算术运算"><a href="#Tip-10-用次数做简单的算术运算" class="headerlink" title="Tip 10 用次数做简单的算术运算"></a>Tip 10 用次数做简单的算术运算</h2><pre><code>&lt;C-a&gt;   +
+&lt;C-x&gt;   -
+</code></pre><h2 id="Tip-11-能够重复，就别用次数"><a href="#Tip-11-能够重复，就别用次数" class="headerlink" title="Tip 11 能够重复，就别用次数"></a>Tip 11 能够重复，就别用次数</h2><pre><code>d2w    2dw    dw.
+</code></pre><p>三者用哪一个？<code>dw.</code> why？因为一是好撤销，二是撤销好控制。  </p>
+<blockquote>
+<p><strong>执行，重复，回退</strong>  vim 的精髓。  </p>
+</blockquote>
+<h2 id="tip-12-Combine-and-Conquer-双剑合壁，天下无敌"><a href="#tip-12-Combine-and-Conquer-双剑合壁，天下无敌" class="headerlink" title="tip 12 Combine and Conquer 双剑合壁，天下无敌"></a>tip 12 Combine and Conquer 双剑合壁，天下无敌</h2><p><strong> Vim 的强大很大程度上源于操作符与动作命令相结合。</strong>  </p>
+<p>操作符 + 动作命令 = 操作  </p>
+<pre><code>d{motion} = dl  daw  dap  
+
+g~  gu  gU  gUaw 
+</code></pre><p><strong> Vim 语法规则：当一个操作符命令被连续调用两次时，它会作用于当前行。比如dd,&gt;&gt; gUU </strong></p>
+<h3 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h3><pre><code>c   修改  
+d   删除  
+y   复制到寄存器  
+g~  反转大小写  
+&gt;   增加缩进  
+&lt;   减少缩进  
+=   自动缩进  
+!   使用外部程序过滤所跨越的行。 嘛意思？
+</code></pre><p>!{motion}{filter}    Filter {motion} text lines through the external program {filter}.</p>
+<ul>
+<li>还可以自定义动作命令。<br>比如textobj-entire 插件 ie ae 代表整个文件。  </li>
+</ul>
+<hr>
+<h1 id="第3章-Insert-Mode-插入模式"><a href="#第3章-Insert-Mode-插入模式" class="headerlink" title="第3章 Insert Mode 插入模式"></a>第3章 Insert Mode 插入模式</h1><h2 id="Tip-13-在插入模式中可即时更正错误"><a href="#Tip-13-在插入模式中可即时更正错误" class="headerlink" title="Tip 13  在插入模式中可即时更正错误"></a>Tip 13  在插入模式中可即时更正错误</h2><p>使用Backspace之外的键。  </p>
+<pre><code>Keystrokes Effect
+&lt;C-h&gt;   Delete back one character  同BackSpace
+&lt;C-w&gt;   Delete back one word  删除一个单词
+&lt;C-u&gt;   Delete back to start of line 删至行首  
+</code></pre><h2 id="Tip-14-返回普通模式"><a href="#Tip-14-返回普通模式" class="headerlink" title="Tip 14  返回普通模式"></a>Tip 14  返回普通模式</h2><pre><code>&lt;Esc&gt;       最好用软件讲caps lock 和esc 互换，mac 下可以使用Seil，免费的
+&lt;C-[&gt;       切换到普通模式
+&lt;C-o&gt;       切换到插入-普通模式，当我们处于插入模式时，想运行一个普通模式命令，然后马上回到原来的位置继续输入，就可以使用这种模式。  
+
+&lt;C-o&gt;zz     把当前行处于屏幕中间并继续编辑，如果先退出插入模式进入普通模式再输入命令，再进入插入模式就太麻烦了，用这条命令就很实用了。  
+</code></pre><h2 id="tip-15-Paste-form-a-Register-Without-Leaving-Insert-Mode-不离开插入模式，粘贴寄存器中的文本"><a href="#tip-15-Paste-form-a-Register-Without-Leaving-Insert-Mode-不离开插入模式，粘贴寄存器中的文本" class="headerlink" title="tip 15  Paste form a Register Without Leaving Insert Mode 不离开插入模式，粘贴寄存器中的文本"></a>tip 15  Paste form a Register Without Leaving Insert Mode 不离开插入模式，粘贴寄存器中的文本</h2><p><strong> <code>yt,</code> 很好的命令，复制本行字符直到<code>,</code>前一个字符。要灵活使用<code>t</code>。</strong>  </p>
+<p><code>&lt;C-r&gt;{register}</code> 在插入模式下的粘贴，就是<code>&lt;C-v&gt;</code>，只是灵活性上更好。  </p>
+<p>In Insert mode, we can press <c-r>0 to paste the text that we just yanked at the current cursor position.</c-r></p>
+<h2 id="tip-16-随时随地做运算"><a href="#tip-16-随时随地做运算" class="headerlink" title="tip 16  随时随地做运算"></a>tip 16  随时随地做运算</h2><pre><code>&lt;C-r&gt;=6*35&lt;CR&gt; 6 chairs, each costing $35, totals $210
+</code></pre><p>表达式寄存器可以用来执行一段vim脚本，并返回其结果。<br>可以当做计算器，蛋疼啊。  </p>
+<p>用<code>=</code>符号指明使用表达式寄存器。在插入模式中，输入<code>&lt;C-r&gt;=</code>就可以访问这一寄存器了。  </p>
+<h2 id="tip-17-Insert-Unusual-Characters-by-Character-Code-使用字符编码插入非常用字符"><a href="#tip-17-Insert-Unusual-Characters-by-Character-Code-使用字符编码插入非常用字符" class="headerlink" title="tip 17 Insert Unusual Characters by Character Code 使用字符编码插入非常用字符"></a>tip 17 Insert Unusual Characters by Character Code 使用字符编码插入非常用字符</h2><pre><code>&lt;C-v&gt;{code}
+&lt;C-v&gt;065 打出的是 A。
+
+&lt;C-v&gt;u00bf  ¿
+如果你想知道文档中任意字符的编码，只需吧光标移动她上面并按`ga`命令即可，屏幕下方会显示。  
+</code></pre><h2 id="tip-18-用二合字母插入非常用字符"><a href="#tip-18-用二合字母插入非常用字符" class="headerlink" title="tip 18 用二合字母插入非常用字符"></a>tip 18 用二合字母插入非常用字符</h2><pre><code>&lt;C-k&gt;&gt;{char1}{char2}
+不常用，算了。  
+</code></pre><h2 id="tip-19-Overwrite-Existing-Text-with-Replace-Mode-用替换模式替换已有文本"><a href="#tip-19-Overwrite-Existing-Text-with-Replace-Mode-用替换模式替换已有文本" class="headerlink" title="tip 19 Overwrite Existing Text with Replace Mode 用替换模式替换已有文本"></a>tip 19 Overwrite Existing Text with Replace Mode 用替换模式替换已有文本</h2><p><code>R</code> 命令可以由普通模式进入替换模式。然后可以一直替换。<br>    <s-r> 和 r 略有不同。<br>虚拟替换模式：<code>gR</code>触发，用得不多。  </s-r></p>
+<hr>
+<h1 id="第4章-Visual-Mode-可视模式"><a href="#第4章-Visual-Mode-可视模式" class="headerlink" title="第4章 Visual Mode  可视模式"></a>第4章 Visual Mode  可视模式</h1><p>Vim 有3种不同的可视模式，分别用于操作字符、行和块。  </p>
+<h2 id="tip-20-深入理解可视模式"><a href="#tip-20-深入理解可视模式" class="headerlink" title="tip 20 深入理解可视模式"></a>tip 20 深入理解可视模式</h2><p><code>viw</code> 选择单个词。用<code>c</code>命令修改所选的内容。用<code>c</code>而不是Backspace。</p>
+<h2 id="tip-21-Define-a-Visual-Selection-选择高亮选区"><a href="#tip-21-Define-a-Visual-Selection-选择高亮选区" class="headerlink" title="tip 21 Define a Visual Selection 选择高亮选区"></a>tip 21 Define a Visual Selection 选择高亮选区</h2><pre><code>v   character-wise  激活面向字符的可视模式  
+V   line-wise       激活面向行的可视模式  
+&lt;C-v&gt;   block-wise  激活面向列的可视模式  
+gv      Reselect the last visual selection  重新选择上次的高亮选区   
+o       Go to other end of qhighlighted text  切换选取的活动端，头尾切换  
+</code></pre><p>:if expand(“%”) == “”|browse confirm w|else|confirm w|endif</p>
+<h2 id="tip-22-Repeat-Line-Wise-Visual-Commands-重复执行面向行的可视命令"><a href="#tip-22-Repeat-Line-Wise-Visual-Commands-重复执行面向行的可视命令" class="headerlink" title="tip 22 Repeat Line-Wise Visual Commands 重复执行面向行的可视命令"></a>tip 22 Repeat Line-Wise Visual Commands 重复执行面向行的可视命令</h2><p>对选中的行也可以用<code>.</code><br>使用<code>.</code>命令重复一条可视模式命令时，它所操作的文本数量和上次被高亮选中的文本数量相同。  </p>
+<h2 id="tip-23-Prefer-Operators-to-Visual-Commands-Where-Possible-最好使用操作符命令，而不是可视命令"><a href="#tip-23-Prefer-Operators-to-Visual-Commands-Where-Possible-最好使用操作符命令，而不是可视命令" class="headerlink" title="tip 23 Prefer Operators to Visual Commands Where Possible 最好使用操作符命令，而不是可视命令"></a>tip 23 Prefer Operators to Visual Commands Where Possible 最好使用操作符命令，而不是可视命令</h2><p>可以使用<code>vit</code>来选择标签里的内容。<code>it</code>表示一种文本对象。 <code>t</code>是 tag 的意思。  </p>
+<p>问题：可视模式命令被重复执行时，它会影响相同数量的文本。  </p>
+<p>用<code>qgUit</code>，不用<code>vitU</code>。</p>
+<p>如果我们想使点命令能够重复某些有用的工作，最好远离可视模式。<br>有时要修改的文本范围的结构很难用动作命令表达出来，可视模式可能更擅长。  </p>
+<blockquote>
+<p>prefer operator commands over their Visual mode equivalents when workong through a repetitive set of changes.  </p>
+</blockquote>
+<p><a href="#">ONE</a><br><a href="#">TWO</a><br><a href="#">THREE</a></p>
+<h2 id="tip-24-Edit-Tabular-Data-with-Visual-Block-Mode-用面向列块的可视模式编辑表格数据"><a href="#tip-24-Edit-Tabular-Data-with-Visual-Block-Mode-用面向列块的可视模式编辑表格数据" class="headerlink" title="tip 24 Edit Tabular Data with Visual-Block Mode 用面向列块的可视模式编辑表格数据"></a>tip 24 Edit Tabular Data with Visual-Block Mode 用面向列块的可视模式编辑表格数据</h2><h2 id="Chapter-Page"><a href="#Chapter-Page" class="headerlink" title="Chapter       |  Page"></a>Chapter       |  Page</h2><p>Normal mode   |    15<br>Insert mode   |    31<br>Visual mode   |    44</p>
+<pre><code>&lt;C-v&gt;3j     选中3列
+x..         删除两个空格
+gv          重新选择列
+r|          替换为|
+yyp         复制一行
+Vr-         替换为-
+</code></pre><p>这里要学习的是三种 v 的选择。复习一遍：</p>
+<pre><code>v   character-wise 
+V   line-wise
+&lt;C-v&gt;   block-wise
+gv      Reselect the last visual selection   
+o       Go to other end of highlighted text
+</code></pre><h2 id="tip-25-Change-Columns-of-Text-修改列文本"><a href="#tip-25-Change-Columns-of-Text-修改列文本" class="headerlink" title="tip 25 Change Columns of Text 修改列文本"></a>tip 25 Change Columns of Text 修改列文本</h2><p>注意使用<c-v> 选择列，改变一行即改变所有选择行。  </c-v></p>
+<pre><code>li.one   a{ background-image: url(&apos;/components/sprite.png&apos;); }
+li.two   a{ background-image: url(&apos;/components/sprite.png&apos;); }
+li.three a{ background-image: url(&apos;/components/sprite.png&apos;); }
+</code></pre><h2 id="tip-26-Append-After-a-Ragged-Visual-Block-在长短不一的高亮块后添加文本"><a href="#tip-26-Append-After-a-Ragged-Visual-Block-在长短不一的高亮块后添加文本" class="headerlink" title="tip 26 Append After a Ragged Visual Block 在长短不一的高亮块后添加文本"></a>tip 26 Append After a Ragged Visual Block 在长短不一的高亮块后添加文本</h2><pre><code>var foo = 1;
+var bar = &apos;a&apos;;
+var foobar = foo + bar;
+</code></pre><p>前面遇到过的一个需求，给每一行加一个『;』,用 Visual Block 更酷，更简单。  </p>
+<pre><code>&lt;C-v&gt;jj$
+A;
+&lt;Esc&gt;
+</code></pre><p>处于插入模式期间，任何输入的内容只会出现在顶行，然而一旦返回到普通模式，这些修改就会扩散到其余被选中的行上。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/note/" rel="tag">#note</a>
+          
+            <a href="/tags/vim/" rel="tag">#vim</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/01/03/warfalcon/" rel="next" title="warfalcon 博客 笔记">
+                <i class="fa fa-chevron-left"></i> warfalcon 博客 笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/13/Swift-中的-和/" rel="prev" title="Swift 中的 ! 和 ? ">
+                Swift 中的 ! 和 ?  <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/02/02/Practical-vim-笔记/"
+           data-title="《Practical Vim》 笔记" data-url="http://quakex.github.io/2015/02/02/Practical-vim-笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="徐林" />
+          <p class="site-author-name" itemprop="name">徐林</p>
+          <p class="site-description motion-element" itemprop="description">专注失败二十年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/quakexx" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> twitter
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-vim-解决问题的方式"><span class="nav-number">1.</span> <span class="nav-text">第一章 vim 解决问题的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-1-Meet-the-Dot-Command"><span class="nav-number">1.1.</span> <span class="nav-text">tip 1 Meet the Dot Command</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-2-Don’t-Repeat-Yourself-不要重复"><span class="nav-number">1.2.</span> <span class="nav-text">tip 2 Don’t Repeat Yourself  不要重复</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#两个不如一个"><span class="nav-number">1.2.1.</span> <span class="nav-text">两个不如一个</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-3-Take-One-Strp-Back-Then-Three-Forward-以退为进"><span class="nav-number">1.3.</span> <span class="nav-text">Tip 3  Take One Strp Back, Then Three Forward 以退为进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-4-执行、重复、回退"><span class="nav-number">1.4.</span> <span class="nav-text">Tip 4  执行、重复、回退</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-5-Find-and-Replace-查找和替换"><span class="nav-number">1.5.</span> <span class="nav-text">Tip 5  Find and Replace 查找和替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-6-结识-范式"><span class="nav-number">1.6.</span> <span class="nav-text">Tip 6  结识 . 范式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-Normal-Mode-普通模式"><span class="nav-number">2.</span> <span class="nav-text">第2章 Normal Mode 普通模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-7-停顿时请移开画笔"><span class="nav-number">2.1.</span> <span class="nav-text">Tip 7 停顿时请移开画笔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-8-把撤销单元切成块"><span class="nav-number">2.2.</span> <span class="nav-text">Tip 8 把撤销单元切成块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-9-构造可重复的修改"><span class="nav-number">2.3.</span> <span class="nav-text">Tip 9 构造可重复的修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-10-用次数做简单的算术运算"><span class="nav-number">2.4.</span> <span class="nav-text">Tip 10 用次数做简单的算术运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-11-能够重复，就别用次数"><span class="nav-number">2.5.</span> <span class="nav-text">Tip 11 能够重复，就别用次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-12-Combine-and-Conquer-双剑合壁，天下无敌"><span class="nav-number">2.6.</span> <span class="nav-text">tip 12 Combine and Conquer 双剑合壁，天下无敌</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令："><span class="nav-number">2.6.1.</span> <span class="nav-text">常用命令：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-Insert-Mode-插入模式"><span class="nav-number">3.</span> <span class="nav-text">第3章 Insert Mode 插入模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-13-在插入模式中可即时更正错误"><span class="nav-number">3.1.</span> <span class="nav-text">Tip 13  在插入模式中可即时更正错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tip-14-返回普通模式"><span class="nav-number">3.2.</span> <span class="nav-text">Tip 14  返回普通模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-15-Paste-form-a-Register-Without-Leaving-Insert-Mode-不离开插入模式，粘贴寄存器中的文本"><span class="nav-number">3.3.</span> <span class="nav-text">tip 15  Paste form a Register Without Leaving Insert Mode 不离开插入模式，粘贴寄存器中的文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-16-随时随地做运算"><span class="nav-number">3.4.</span> <span class="nav-text">tip 16  随时随地做运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-17-Insert-Unusual-Characters-by-Character-Code-使用字符编码插入非常用字符"><span class="nav-number">3.5.</span> <span class="nav-text">tip 17 Insert Unusual Characters by Character Code 使用字符编码插入非常用字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-18-用二合字母插入非常用字符"><span class="nav-number">3.6.</span> <span class="nav-text">tip 18 用二合字母插入非常用字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-19-Overwrite-Existing-Text-with-Replace-Mode-用替换模式替换已有文本"><span class="nav-number">3.7.</span> <span class="nav-text">tip 19 Overwrite Existing Text with Replace Mode 用替换模式替换已有文本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第4章-Visual-Mode-可视模式"><span class="nav-number">4.</span> <span class="nav-text">第4章 Visual Mode  可视模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-20-深入理解可视模式"><span class="nav-number">4.1.</span> <span class="nav-text">tip 20 深入理解可视模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-21-Define-a-Visual-Selection-选择高亮选区"><span class="nav-number">4.2.</span> <span class="nav-text">tip 21 Define a Visual Selection 选择高亮选区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-22-Repeat-Line-Wise-Visual-Commands-重复执行面向行的可视命令"><span class="nav-number">4.3.</span> <span class="nav-text">tip 22 Repeat Line-Wise Visual Commands 重复执行面向行的可视命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-23-Prefer-Operators-to-Visual-Commands-Where-Possible-最好使用操作符命令，而不是可视命令"><span class="nav-number">4.4.</span> <span class="nav-text">tip 23 Prefer Operators to Visual Commands Where Possible 最好使用操作符命令，而不是可视命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-24-Edit-Tabular-Data-with-Visual-Block-Mode-用面向列块的可视模式编辑表格数据"><span class="nav-number">4.5.</span> <span class="nav-text">tip 24 Edit Tabular Data with Visual-Block Mode 用面向列块的可视模式编辑表格数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-Page"><span class="nav-number">4.6.</span> <span class="nav-text">Chapter       |  Page</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-25-Change-Columns-of-Text-修改列文本"><span class="nav-number">4.7.</span> <span class="nav-text">tip 25 Change Columns of Text 修改列文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip-26-Append-After-a-Ragged-Visual-Block-在长短不一的高亮块后添加文本"><span class="nav-number">4.8.</span> <span class="nav-text">tip 26 Append After a Ragged Visual Block 在长短不一的高亮块后添加文本</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐林</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"quakex"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

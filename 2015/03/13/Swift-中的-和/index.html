@@ -1,0 +1,814 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="swift," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="看了好几遍，一直记不住，我这智商基本已经告别编程界了，伤心。还是动手写下来，免得每次想看时到处找。  
+？的由来Swift 中的变量必须初始化，而且一般都得程序员自己干，编译器不会默认帮你生成一个初始值，这点和C、C++等常见语言是不同的。如果声明一个变量不手动初始化，就会报错喔。比如：  
+var a:String
+var b = a
+但是，有些变量就是没有值啊，难不成我要写 var a = n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift 中的 ! 和 ? ">
+<meta property="og:url" content="http://quakex.github.io/2015/03/13/Swift-中的-和/index.html">
+<meta property="og:site_name" content="徐林的博客">
+<meta property="og:description" content="看了好几遍，一直记不住，我这智商基本已经告别编程界了，伤心。还是动手写下来，免得每次想看时到处找。  
+？的由来Swift 中的变量必须初始化，而且一般都得程序员自己干，编译器不会默认帮你生成一个初始值，这点和C、C++等常见语言是不同的。如果声明一个变量不手动初始化，就会报错喔。比如：  
+var a:String
+var b = a
+但是，有些变量就是没有值啊，难不成我要写 var a = n">
+<meta property="og:updated_time" content="2015-06-16T07:38:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift 中的 ! 和 ? ">
+<meta name="twitter:description" content="看了好几遍，一直记不住，我这智商基本已经告别编程界了，伤心。还是动手写下来，免得每次想看时到处找。  
+？的由来Swift 中的变量必须初始化，而且一般都得程序员自己干，编译器不会默认帮你生成一个初始值，这点和C、C++等常见语言是不同的。如果声明一个变量不手动初始化，就会报错喔。比如：  
+var a:String
+var b = a
+但是，有些变量就是没有值啊，难不成我要写 var a = n">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Swift 中的 ! 和 ?  | 徐林的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">徐林的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Swift 中的 ! 和 ? 
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-03-13T15:38:54+08:00" content="2015-03-13">
+              2015-03-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/dev/" itemprop="url" rel="index">
+                    <span itemprop="name">dev</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/13/Swift-中的-和/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/13/Swift-中的-和/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>看了好几遍，一直记不住，我这智商基本已经告别编程界了，伤心。还是动手写下来，免得每次想看时到处找。  </p>
+<h1 id="？的由来"><a href="#？的由来" class="headerlink" title="？的由来"></a>？的由来</h1><p>Swift 中的变量必须初始化，而且一般都得程序员自己干，编译器不会默认帮你生成一个初始值，这点和C、C++等常见语言是不同的。如果声明一个变量不手动初始化，就会报错喔。比如：  </p>
+<pre><code>var a:String
+var b = a
+</code></pre><p>但是，有些变量就是没有值啊，难不成我要写 <code>var a = nil</code>，这样岂不很烦，一点也不fashion。于是乎Apple的工程师就发明了Optional类型，如果没有初始化，编译器就默认将其初始化为nil。这是个特例，就有特例的做法。<strong>你需要在声明一个变量时在最后加个 <code>?</code> 就表示这个变量是个Optional变量</strong>，可能为nil，也可能为非nil值。归根结底还是Optional值，确切的说是个Enum值，一下感觉好不fashion，那么swift的语言，骨子里还是奶奶级的<code>C</code>。  </p>
+<a id="more"></a>   
+<pre><code>var a : String?  // 相当于下面的语法糖
+var strValue: Optional&lt;String&gt;
+</code></pre><blockquote>
+<p>上面这个Optional的声明，意思不是”我声明了一个Optional的String值”, 而是”我声明了一个Optional类型值，它可能包含一个String值，也可能什么都不包含”，也就是说实际上我们声明的是Optional类型，而不是声明了一个String类型，这一点需要铭记在心。</p>
+<p>Optional事实上是一个枚举类型，Optional包含None和Some两种类型，而nil就是Optional.None，非nil就是Optional.some。如果Optional变量在声明时不初始化，Swift会调用init()来初始化变量为nil，而用非nil的值初始化变量时，会通过Some(T)把该原始值包装，所以在之后使用的时候我们需要通过解包取出原始值才能使用。</p>
+</blockquote>
+<p><code>a</code> 是一个Optional值，使用Optional变量也和其它变量不同，需要解包，真麻烦，直接上不行吗？不行的，都是党员，不要那么粗鲁。需要脱衣服，想上Swift是要付出代价的！<br>使用Optional值的时候要在具体的操作，比如调用方法、属性、下标索引等前面加上一个<code>?</code>，如果是nil值，也就是<code>Optional.None</code>，会跳过后面的操作不执行，如果有值，就是<code>Optional.Some</code>，可能就会拆包(unwrap)，然后对拆包后的值执行后面的操作，来保证执行这个操作的安全性。</p>
+<pre><code>let hashValue = strValue?.hashValue
+必须在变量名后加个问号啊。也可以不加，后面再说。  
+</code></pre><p><code>?</code>不仅用在Optional变量上，还可以用于安全的调用protocol类型方法上。why？<br>因为protocol方法也可能是<code>@optional</code>的啊，不一定会实现，不一定的事情，就要加<code>?</code>，很好理解是不是？示例如下：  </p>
+<pre><code>@objc protocol Downloadable {
+    @optional func download(toPath: String) -&gt; Bool;
+}
+
+@objc class Content: Downloadable {
+    //download method not be implemented
+}
+
+var delegate: Downloadable = Downloadable()
+delegate.download?(&quot;some path&quot;) // 看这里，看这里
+</code></pre><p>同样的情况在向下类型转换中也会用到——<code>as?</code>。</p>
+<pre><code>if let dataSource = object as? UITableViewDataSource {
+let rowsInFirstSection  = dataSource.tableView(tableView, numberOfRowsInSection: 0)
+}
+</code></pre><p>到这里我们看到了?的几种使用场景:  </p>
+<h2 id="？的使用场景"><a href="#？的使用场景" class="headerlink" title="？的使用场景"></a>？的使用场景</h2><p>1.声明Optional值变量<br>2.用在对Optional值操作中，用来判断是否能响应后面的操作<br>3.用于安全调用protocol的optional方法<br>4.使用 as? 向下转型(Downcast)</p>
+<p>都是不确定的情形。所以，<code>?</code>还是有道理的。  </p>
+<h1 id="！的作用：Optional-变量的解绑-unwrap"><a href="#！的作用：Optional-变量的解绑-unwrap" class="headerlink" title="！的作用：Optional 变量的解绑 unwrap"></a>！的作用：Optional 变量的解绑 unwrap</h1><p>要想对Optional 变量进行操~~~作，硬上是不行的，必须脱衣服unwrap，只有把衣服脱了才能见到我们需要的东西，那就是，真材实料、白嫩水滑的<code>Optional.Some</code>，而不是<code>Optional变量</code>本身。这里脱衣服有两种方法，一种是<code>Optional Binding</code>，繁复拖沓，很是不爽。又是赋值，又用if判断是否为nil。步骤如下：  </p>
+<pre><code>var strValue: String?
+
+if let str = strValue {
+    let hashValue = str.hashValue
+}
+</code></pre><p>每个Optional变量都这么用，那就太麻烦了。还有一种简洁方便的『一键脱衣法』，就是用<code>!</code>。  </p>
+<pre><code>let hashValue = strValue!.hashValue
+</code></pre><p>这里的<code>!</code>表示“我确定这里的的strValue一定是非nil的，尽情调用吧”，一键脱衣也是有条件的，就是Optional必须为非nil，否则会出错，crash掉。  </p>
+<p>一键脱衣虽然方便，但每次都得脱也挺麻烦的，对那些我确定有货的变量，我脱一次不就够了吗？没必要每次调用时都在操作前加<code>!</code>啊。对于这样的变量，我们只需要在声明时脱一次就OK了。在声明变量时加<code>!</code></p>
+<pre><code>var myLabel: UILabel!  //!相当于下面这种写法的语法糖
+var myLabel: ImplicitlyUnwrappedOptional&lt;UILabel&gt;
+</code></pre><blockquote>
+<p>这种是特殊的Optional，称为Implicitly Unwrapped Optionals, 直译就是隐式拆包的Optional，就等于说你每次对这种类型的值操作时，都会自动在操作前补上一个<code>!</code>进行拆包，然后在执行后面的操作，当然如果该值是nil，也一样会报错crash掉  </p>
+</blockquote>
+<h2 id="的使用场景"><a href="#的使用场景" class="headerlink" title="! 的使用场景"></a>! 的使用场景</h2><p>1.强制对Optional值进行拆包(unwrap)<br>2.声明Implicitly Unwrapped Optionals值，一般用于类中的属性</p>
+<h1 id="BTW"><a href="#BTW" class="headerlink" title="BTW"></a>BTW</h1><p>本文是<a href="http://joeyio.com" target="_blank" rel="external">代码手艺工人</a>文章<a href="http://joeyio.com/ios/2014/06/04/swift---/" target="_blank" rel="external">Swift之？和！</a>的成人版。感谢这些大牛的分享，我等小菜自娱自乐而已。  </p>
+<p>以上。  </p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/swift/" rel="tag">#swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/02/Practical-vim-笔记/" rel="next" title="《Practical Vim》 笔记">
+                <i class="fa fa-chevron-left"></i> 《Practical Vim》 笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/14/Git-Summarize/" rel="prev" title="Git 总结">
+                Git 总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/03/13/Swift-中的-和/"
+           data-title="Swift 中的 ! 和 ? " data-url="http://quakex.github.io/2015/03/13/Swift-中的-和/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="徐林" />
+          <p class="site-author-name" itemprop="name">徐林</p>
+          <p class="site-description motion-element" itemprop="description">专注失败二十年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/quakexx" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> twitter
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#？的由来"><span class="nav-number">1.</span> <span class="nav-text">？的由来</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#？的使用场景"><span class="nav-number">1.1.</span> <span class="nav-text">？的使用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#！的作用：Optional-变量的解绑-unwrap"><span class="nav-number">2.</span> <span class="nav-text">！的作用：Optional 变量的解绑 unwrap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#的使用场景"><span class="nav-number">2.1.</span> <span class="nav-text">! 的使用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BTW"><span class="nav-number">3.</span> <span class="nav-text">BTW</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐林</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"quakex"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

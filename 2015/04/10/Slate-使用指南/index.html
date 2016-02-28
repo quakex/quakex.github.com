@@ -1,0 +1,1115 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="tools,MacOSX," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="Mac 下的窗口管理软件ShiftIt:开源，免费，我之前一直在用，直到遇到slate。Divvy:商业软件，没用过。SizeUp:听说过，没用过。Moom:商业软件，五星级，很好用，个人感觉是slate的易用版，更人性化。  
+这些软件都能看到Slate的影子。  
+Slate 简介Slate 是Mac OSX下一个键盘驱动的窗口管理软件，免费，开源，强大，唯一的缺点就是稍复杂，配置上手有点困难">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Slate 使用指南">
+<meta property="og:url" content="http://quakex.github.io/2015/04/10/Slate-使用指南/index.html">
+<meta property="og:site_name" content="徐林的博客">
+<meta property="og:description" content="Mac 下的窗口管理软件ShiftIt:开源，免费，我之前一直在用，直到遇到slate。Divvy:商业软件，没用过。SizeUp:听说过，没用过。Moom:商业软件，五星级，很好用，个人感觉是slate的易用版，更人性化。  
+这些软件都能看到Slate的影子。  
+Slate 简介Slate 是Mac OSX下一个键盘驱动的窗口管理软件，免费，开源，强大，唯一的缺点就是稍复杂，配置上手有点困难">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/7e67578bjw1ercc9y37k4j218g0p0k1z.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/7e67578bjw1erccuju98lj218g0p0k5p.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/7e67578bjw1erccv30hgdj21kw0zk7d7.jpg">
+<meta property="og:updated_time" content="2015-06-21T13:51:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Slate 使用指南">
+<meta name="twitter:description" content="Mac 下的窗口管理软件ShiftIt:开源，免费，我之前一直在用，直到遇到slate。Divvy:商业软件，没用过。SizeUp:听说过，没用过。Moom:商业软件，五星级，很好用，个人感觉是slate的易用版，更人性化。  
+这些软件都能看到Slate的影子。  
+Slate 简介Slate 是Mac OSX下一个键盘驱动的窗口管理软件，免费，开源，强大，唯一的缺点就是稍复杂，配置上手有点困难">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/7e67578bjw1ercc9y37k4j218g0p0k1z.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Slate 使用指南 | 徐林的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">徐林的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Slate 使用指南
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-10T14:45:39+08:00" content="2015-04-10">
+              2015-04-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/10/Slate-使用指南/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/10/Slate-使用指南/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Mac-下的窗口管理软件"><a href="#Mac-下的窗口管理软件" class="headerlink" title="Mac 下的窗口管理软件"></a>Mac 下的窗口管理软件</h1><p><a href="https://github.com/fikovnik/ShiftIt" target="_blank" rel="external">ShiftIt</a>:开源，免费，我之前一直在用，直到遇到<code>slate</code>。<br><a href="http://mizage.com/divvy/" target="_blank" rel="external">Divvy</a>:商业软件，没用过。<br><a href="http://www.irradiatedsoftware.com/sizeup/" target="_blank" rel="external">SizeUp</a>:听说过，没用过。<br><a href="https://itunes.apple.com/us/app/moom/id419330170?mt=12" target="_blank" rel="external">Moom</a>:商业软件，五星级，很好用，个人感觉是<code>slate</code>的易用版，更人性化。  </p>
+<p>这些软件都能看到<code>Slate</code>的影子。  </p>
+<h1 id="Slate-简介"><a href="#Slate-简介" class="headerlink" title="Slate 简介"></a>Slate 简介</h1><p><code>Slate</code> 是Mac OSX下一个键盘驱动的窗口管理软件，免费，<a href="https://github.com/jigish/slate" target="_blank" rel="external"><strong>开源</strong></a>，强大，唯一的缺点就是稍复杂，配置上手有点困难。和 <code>Vim</code> 一样，用神器要付出点小代价。但相信我，这个代价是绝对值得的。何况，还有我这样蛋疼大叔帮你开路不是么。  </p>
+<a id="more"></a>
+<h2 id="用-Slate-可以做哪些事"><a href="#用-Slate-可以做哪些事" class="headerlink" title="用 Slate 可以做哪些事"></a>用 Slate 可以做哪些事</h2><ul>
+<li>移动窗口位置，改变窗口大小，布置窗口。</li>
+<li>快速切换窗口，直接快捷键 Focus 程序，绝对比 Command+tab 快得多。还有一种方法类似 <code>easyMotion</code>和 <code>Vimium</code>，程序员都懂的，这里也推荐一下<code>Vimium</code>插件，Chrome 必备啊。为什么 Safari 就没一个这么好用的插件呢？<code>vimari</code> 勉强可用，但比起<code>Vimium</code>还是差不少。  </li>
+<li>管理多显示器。Slate 可以快速的将窗口布置到不同的显示器，这点是我最喜欢的功能。  </li>
+<li>支持窗口布局。嘛意思？比如你工作时，主显示器开 Xcode，左边显示器左半部分放 Safari 浏览资料，右半部分放 iTerm；右显示器左上放iTunes，左下放 QQ 聊妹子，右半屏幕还可以用 Vim。肿么办？每次打开电脑都得拖窗口一个一个的放到固定的位置就太麻烦了，用<code>Slate</code> 的窗口布局，再配个快捷键，<strong>一键搞定</strong>啊，骚年！相信孤独的你一定想在心仪的妹子前表演这个酷炫的动作，从而赢得姑娘的芳心，Just do it！你将孤独一生。扯远了。<br><strong>Slate 还支持多个布局</strong>，这点是非常强的，比如你针对一个、两个或三个显示器使用三种不同的窗口布局，家里、办公、code、写作、娱乐使用不同的布局，这些布局可以随时一键切换。多么的人性化啊，人参都变得精彩了是不是？  </li>
+</ul>
+<h2 id="安装-Slate"><a href="#安装-Slate" class="headerlink" title="安装 Slate"></a>安装 Slate</h2><p><strong>直接下载 dmg</strong>： <a href="http://slate.ninjamonkeysoftware.com/Slate.dmg" target="_blank" rel="external">下载地址</a>  </p>
+<p><strong>命令行下载</strong>： </p>
+<pre><code>cd /Applications &amp;&amp; curl http://www.ninjamonkeysoftware.com/slate/versions/slate-latest.tar.gz | tar -xz  
+</code></pre><h2 id="配置-Slate"><a href="#配置-Slate" class="headerlink" title="配置 Slate"></a>配置 Slate</h2><p><code>Slate</code>的配置文件是用 <code>JavaScript</code> 写的，<code>JS</code> 不愧是21世纪的 C 语言，前端不用说了、服务端的<code>Node</code>、移动端<code>ReactNative</code>、现在连配置文件也用 <code>JS</code>，NB 啊！唉，我人生一大失败就是在 <code>C++</code> 上浪费了太多的精力，却什么也没学会。想起年轻时看《Effective C++》、《Effective C++ More》看嗨的岁月，有一种莫名的忧伤。如果当年把这个精力用在 JS 上就好了，现在不早当上 CEO，迎娶白富美，踏上人生巅峰了么。可惜，当初我选择了 C++，从此走上不归路。<code>C++</code>学精也是了不得的，不得不承认 <code>C++</code>确实 超出了我的智力水平，打击了我幼小的心灵，使我逐渐对成为一个伟大的程序员丧失兴趣，转而成为了一个泥瓦工。泥瓦工做了一段时间，太辛苦，粉尘太大，受不了。我觉得烤面筋比较适合我，目前准备向这方面发展。  </p>
+<p><a href="https://github.com/jigish/slate/wiki/JavaScript-Configs" target="_blank" rel="external"><code>Slate</code> 配置文档</a>  </p>
+<p>看懂没？我反正没看懂。  </p>
+<p><strong>默认配置文件</strong>：用户目录(<code>~/</code>)下的<code>.slate</code>文件。<br>如果用户没有自己建立这个文件，Slate 会使用一个默认的<a href="https://github.com/jigish/slate/blob/master/Slate/default.slate" target="_blank" rel="external">配置文件</a>。 这个默认的配置文件也很好用。  </p>
+<p>配置文件可以细分为以下几个方面：  </p>
+<ul>
+<li>config (全局设置)</li>
+<li>alias (设置别名)</li>
+<li>layout (布局)</li>
+<li>default (默认布局配置)</li>
+<li>bind (快捷键绑定)</li>
+<li>source (配置引用)</li>
+</ul>
+<h2 id="配置参数和指令"><a href="#配置参数和指令" class="headerlink" title="配置参数和指令"></a>配置参数和指令</h2><p>Slate 通过各种命令来实现窗口的操作，这也是它强大的地方，各种命令的配合可以实现各种效果。将这种模式应用到极致的当属编辑器之神——<code>Vim</code>。我觉得<code>Slate</code>可以称为窗口管理之神。  </p>
+<p>下面对一些常用的参数和指令进行介绍：  </p>
+<p><strong>下面这些内容仅对喜欢折腾的程序猿，如果你只是想使用<code>Slate</code>，完全可以忽略，直接看最后的我的配置文件：<a href="#jump">.slate</a>，我会尽量讲清楚，相信聪明的你一看就会懂的。</strong>  </p>
+<p>不要看，不要看，人生苦短，回头是岸。</p>
+<h3 id="Expressions-属性"><a href="#Expressions-属性" class="headerlink" title="Expressions  属性"></a>Expressions  属性</h3><p>这些属性很重要，大部分工作就是配置这些属性值。从而控制窗口的大小、位置等属性。    </p>
+<pre><code>screenOriginX = 屏幕原点 X 坐标
+screenOriginY = 屏幕原点 Y 坐标
+screenSizeX = target screen&apos;s width 屏幕宽度
+screenSizeY = target screen&apos;s height 屏幕高度
+windowTopLeftX = window&apos;s current top left x coordinate (should not be used in Window Hints configs) 窗口左上 X 坐标  
+windowTopLeftY = window&apos;s current top left y coordinate (should not be used in Window Hints configs) 窗口左上 Y 坐标  
+windowSizeX = window&apos;s width  窗口宽度  
+windowSizeY = window&apos;s height  窗口高度  
+newWindowSizeX = window&apos;s new width (after resize, only usable in topLeftX and topLeftY, should not be
+                 used in configs)  窗口新宽度  
+newWindowSizeY = window&apos;s new height (after resize, only usable in topLeftX and topLeftY, should not be
+                 used in configs)  窗口新高度  
+windowHintsWidth = the value of the windowHintsWidth config (only usable in windowHintsTopLeftX and
+                   windowHintsTopLeftY)  窗口提示宽度，这个后面讲  
+windowHintsHeight = the value of the windowHintsHeight config (only usable in windowHintsTopLeftX and
+                    windowHintsTopLeftY)  
+</code></pre><h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><pre><code>+          e.g. 1+1 = 2
+-          e.g. 1-1 = 0
+*          e.g. 2*2 = 4
+/          e.g. 4/2 = 2
+</code></pre><p>还有很多，各种数学函数什么的，加减乘除就够了，一个窗口管理要 <code>log</code> 函数干嘛？  </p>
+<p><strong>属性+操作符就可以描述窗口的位置了</strong>，比如 <code>screenSizeY/2 = 屏幕宽度的一半</code></p>
+<h2 id="config-指令"><a href="#config-指令" class="headerlink" title="config 指令"></a><code>config</code> 指令</h2><p>例如：</p>
+<pre><code>config defaultToCurrentScreen true  
+</code></pre><p><code>config</code>一般用于配置一些全局属性和 Slate  本身的配置，比如按键重复的时间、键盘布局等等。  </p>
+<p>具体介绍再此：</p>
+<p><a href="https://github.com/jigish/slate/wiki/Global-Configs" target="_blank" rel="external">Global Configs</a>  </p>
+<h2 id="alias-指令"><a href="#alias-指令" class="headerlink" title="alias 指令"></a><code>alias</code> 指令</h2><p>设置别名：<br>    alias 新名字 原来的名字 </p>
+<p>例如：  </p>
+<pre><code>alias hyper cmd;ctrl
+alias sox screenOriginX
+alias soy screenOriginY
+alias ssx screenSizeX
+alias ssy screenSizeY
+</code></pre><p>这个程序猿都懂的。因为好的程序员都是很懒的，对他们来说多敲一个字符都是罪恶的。别名就是为了偷懒。  </p>
+<h2 id="layout-指令"><a href="#layout-指令" class="headerlink" title="layout 指令"></a><code>layout</code> 指令</h2><p>这个有点复杂，但也是 Slate 强大的地方。<br>语法：  </p>
+<pre><code>layout name &apos;app name&apos;:OPTIONS operations
+</code></pre><p>实例：  </p>
+<pre><code>layout myLayout &apos;iTerm&apos; push up bar-resize:screenSizeY/2 | push down bar-resize:screenSizeY/2
+layout myLayout &apos;Google Chrome&apos; push left bar-resize:screenSizeX/2 | push right bar-resize:screenSizeX/2
+</code></pre><p>创建了一个名为<code>myLayout</code>的布局（layout），当你打开两个 <code>iTerm</code> ，触发布局后，第一个 iTerm 在屏幕的上半部分，第二个在下半部分。Chrome 同理。  </p>
+<p><code>Options</code> 的说明:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>IGNORE_FAIL</code></td>
+<td style="text-align:left">This will let slate move to the next operation if the current operation fails to resize/move on the current window</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>REPEAT</code></td>
+<td style="text-align:left">This will repeat the list of operations if the number of windows is larger than the number of operations</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>REPEAT_LAST</code></td>
+<td style="text-align:left">This will repeat the last operation in the list if the number of windows is larger than the number of operations</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAIN_FIRST</code></td>
+<td style="text-align:left">This will cause the main window to always use the first operation</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAIN_LAST</code></td>
+<td style="text-align:left">This will cause the main window to always use the last operation (mutally exclusive with <code>MAIN_FIRST</code>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SORT_TITLE</code></td>
+<td style="text-align:left">This will cause the window operations to be triggered on the windows in sorted order by the window title (can be used with <code>MAIN_FIRST</code> or <code>MAIN_LAST</code>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TITLE_ORDER=order</code></td>
+<td style="text-align:left">This will cause the operations to be triggered on the windows starting with order which is a semi-colon separated list of window titles</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>TITLE_ORDER_REGEX=order</code></td>
+<td style="text-align:left">This will cause the operations to be triggered on the windows starting with the order which is a semi-colon separated list of window title regexes to match. Note that once a match is seen, the next regex will be used to match. This means if you have two windows that match the same regex, only the first one seen will be matched. The second will not.</td>
+</tr>
+</tbody>
+</table>
+<p>看懂没有？我也是看了好久，这里的<code>Options</code>是什么意思？有时一个程序打开多个窗口，比如 MacVim 打开了好几个文档，这时你可以细化单独程序（例如 Macvim）的每个文档窗口的位置布局。比如屏幕左边放<code>.cpp</code>，右边放<code>.h</code>，真的是想得太周到了。只有独立开发者才会设计的这么周全，因为这都是真爱啊！  </p>
+<p>对我来说，<code>REPEAT</code> 和 <code>MAIN_FIRST</code> 就足够用了。  </p>
+<h2 id="default-指令"><a href="#default-指令" class="headerlink" title="default 指令"></a><code>default</code> 指令</h2><p>语法：  </p>
+<pre><code>default layout-or-snapshot-name screen-configuration  
+</code></pre><p>当屏幕的配置发生变化时，比如一个显示器变成两个，将触发对应的 Layout。  </p>
+<h2 id="bind-指令"><a href="#bind-指令" class="headerlink" title="bind 指令"></a><code>bind</code> 指令</h2><p>可能是用得最多的指令。  </p>
+<p>语法：</p>
+<pre><code>bind key:modifiers operation parameter+
+bind key:modal-key operation parameter+
+</code></pre><p>下面讲<code>bind</code>指令的每个要素，特别是<code>operation</code>参数，注意学习。  </p>
+<h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><p>键盘上的按键。什么字母就对应什么按键，小写。  </p>
+<h3 id="modifiers-控制键"><a href="#modifiers-控制键" class="headerlink" title="modifiers 控制键"></a><code>modifiers</code> 控制键</h3><pre><code>ctrl, alt, cmd, shift  
+</code></pre><h3 id="Modal-Key"><a href="#Modal-Key" class="headerlink" title="Modal Key"></a><code>Modal Key</code></h3><p><code>1:f4,ctrl,alt</code> 按下 <code>ctrl+Alt+f4</code>之后，激活 <code>modal 模式</code>，再按<code>1</code>就可以触发绑定了。  </p>
+<p>这种操作模式类似<code>easyMotion</code>，先按<code>:</code>后的组合键触发<code>发大招模式</code>，再按<code>:</code>前的键就可以发大招了。  </p>
+<h3 id="Operation-操作"><a href="#Operation-操作" class="headerlink" title="Operation 操作"></a>Operation 操作</h3><h4 id="Screens-屏幕"><a href="#Screens-屏幕" class="headerlink" title="Screens 屏幕"></a>Screens 屏幕</h4><p>指定屏幕（显示器）</p>
+<ul>
+<li><p>可以用整数值指定屏幕 ID（计数从0开始喔，你懂的），屏幕顺序从左往右，最左边的屏幕就是0，这里可以设置<code>orderScreensLeftToRight</code>全局变量，记得<code>config</code>指令不？  </p>
+</li>
+<li><p>用屏幕分辨率指定：格式 <code>屏幕宽度x屏幕高度</code>。  </p>
+</li>
+<li>相对于当前屏幕的方向：<code>left|right|up|above|down|below</code>。</li>
+<li><code>next</code>或<code>previous</code>。  </li>
+</ul>
+<p>我用的是第一种方法。  </p>
+<p>讲了这么半天，还没说到怎么操作窗口，真是啰嗦，前戏太长了吧？<br>好吧，姿势来了，来学吧，少年！  </p>
+<h4 id="move-移动窗口"><a href="#move-移动窗口" class="headerlink" title="move 移动窗口"></a>move 移动窗口</h4><p>语法：  </p>
+<pre><code>move topLeftX;topLeftY sizeX;sizeY screen  
+move 窗口左上角X坐标;左上角Y坐标 窗口宽度;窗口高度 指定屏幕  
+</code></pre><p>后面的命令我就不翻译了，很容易理解。太啰嗦的男人容易变弯的。  </p>
+<p>举个栗子：  </p>
+<pre><code>bind pad1:ctrl move 0;0 100;100 1  
+</code></pre><p>绑定 <code>ctrl+numpad1</code>，使其触发 <code>移动当前窗口到屏幕1的左上角(0,0)处，窗口大小为（100，100）</code>。单位都是像素。  </p>
+<h4 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h4><p>语法：  </p>
+<pre><code>resize x y anchor  
+</code></pre><p>例子：  </p>
+<pre><code>bind right:alt;ctrl       resize +10% +0  // 按 ctrl+alt+右方向 每次按键增加窗口宽度，大小为屏幕的10%，可以按着不松喔  
+bind left:alt;ctrl        resize -10% +0  // 减小窗口宽度  
+bind up:alt;ctrl          resize +0   -10%
+bind down:alt;ctrl        resize +0   +10%
+</code></pre><h4 id="push"><a href="#push" class="headerlink" title="push"></a>push</h4><p>移动窗口到屏幕边缘。其实就是<code>move</code>指令的简化版。  </p>
+<p>语法：  </p>
+<pre><code>push direction style  
+</code></pre><p>例子：  </p>
+<pre><code>bind right:ctrl;cmd  push right bar-resize:screenSizeX/3 // 让窗口移动到屏幕右侧边缘，窗口宽度为屏幕的1/3；如果不指定 style 参数，默认为屏幕的1/2  
+bind left:ctrl;cmd   push left  bar-resize:screenSizeX/3
+bind up:ctrl;cmd     push up    bar-resize:screenSizeY/2
+bind down:ctrl;cmd   push down  bar-resize:screenSizeY/2
+</code></pre><h4 id="nudge-移动窗口"><a href="#nudge-移动窗口" class="headerlink" title="nudge  移动窗口"></a>nudge  移动窗口</h4><pre><code># Nudge Bindings
+bind right:shift;alt nudge +10% +0  // 向右移动
+bind left:shift;alt  nudge -10% +0
+bind up:shift;alt    nudge +0   -10%
+bind down:shift;alt  nudge +0   +10%
+</code></pre><h4 id="throw-将窗口移动到指定屏幕"><a href="#throw-将窗口移动到指定屏幕" class="headerlink" title="throw  将窗口移动到指定屏幕"></a>throw  将窗口移动到指定屏幕</h4><p>语法：  </p>
+<pre><code>throw screen style  
+</code></pre><p>例子：  </p>
+<pre><code>bind pad1:alt,ctrl throw 1 resize  // 将窗口移到屏幕1，并最大化，这里的 style 参数同 push，可以指定移动后窗口的大小  
+</code></pre><h4 id="corner"><a href="#corner" class="headerlink" title="corner"></a>corner</h4><p>语法：  </p>
+<pre><code>corner direction style
+</code></pre><p>移动窗口到屏幕的4个角：<code>top-left|top-right|bottom-left|bottom-right</code>  </p>
+<p>也是<code>move</code>简化版。  </p>
+<h4 id="shell-执行-shell-命令"><a href="#shell-执行-shell-命令" class="headerlink" title="shell  执行 shell 命令"></a>shell  执行 shell 命令</h4><pre><code>bind 1:ctrl wait path:~/code &apos;/opt/local/bin/mvim&apos;  
+</code></pre><h4 id="hide-show-toggle-隐藏、显示和切换窗口"><a href="#hide-show-toggle-隐藏、显示和切换窗口" class="headerlink" title="hide show toggle  隐藏、显示和切换窗口"></a>hide show toggle  隐藏、显示和切换窗口</h4><p>上班看1024的利器。   </p>
+<pre><code>bind 1:ctrl hide &apos;MPlayer&apos;,&apos;Google Chrome&apos;
+bind 2:ctrl show &apos;MPlayer,&apos;Google Chrome&apos;
+
+bind 1:ctrl toggle &apos;MPlayer&apos;,&apos;Google Chrome&apos;  // 更实用  
+</code></pre><h4 id="chain-星云锁链"><a href="#chain-星云锁链" class="headerlink" title="chain  星云锁链"></a>chain  星云锁链</h4><pre><code>bind 1:ctrl chain push up | push right | push down | push left  
+</code></pre><p>第一次按键 push up，第二次 push right，blablabla</p>
+<p><code>Slate</code>的作者实在是想得太周到了。  </p>
+<h4 id="sequence-斗转星移"><a href="#sequence-斗转星移" class="headerlink" title="sequence  斗转星移"></a>sequence  斗转星移</h4><pre><code>bind 1:ctrl sequence focus right &gt; push left | push right  
+</code></pre><p>按<code>ctrl+1</code>激活当前窗口右边的窗口，同时将旧窗口 push 到屏幕左边，新窗口 push 到屏幕右边。  </p>
+<p><a href="https://github.com/jigish" target="_blank" rel="external">Jigish Patel</a>同志，请接受我的膝盖。  </p>
+<h4 id="layout-指定布局"><a href="#layout-指定布局" class="headerlink" title="layout  指定布局"></a>layout  指定布局</h4><pre><code>bind 1:ctrl layout myLayout  // ctrl+1 激活名为 myLayout 的布局  
+</code></pre><h4 id="focus-聚焦窗口"><a href="#focus-聚焦窗口" class="headerlink" title="focus  聚焦窗口"></a>focus  聚焦窗口</h4><p>语法：<code>focus direction|app</code>  </p>
+<pre><code>bind 1:ctrl focus above  
+bind 1:ctrl focus &apos;iTerm&apos;  
+</code></pre><p>直接切换窗口焦点。用过<code>tmux</code>的都知道。  </p>
+<h4 id="snapshot-delete-snapshot-activate-snapshot-快照功能"><a href="#snapshot-delete-snapshot-activate-snapshot-快照功能" class="headerlink" title="snapshot delete-snapshot activate-snapshot 快照功能"></a>snapshot delete-snapshot activate-snapshot 快照功能</h4><p>给当前窗口拍个快照，以便恢复。陈老师的东西，太高大上，我用不习惯。  </p>
+<h4 id="hint-星际穿越"><a href="#hint-星际穿越" class="headerlink" title="hint  星际穿越"></a>hint  星际穿越</h4><p>语法：<code>bind 1:ctrl hint QWERTYUIOP</code></p>
+<p>窗口级的<code>easyMotion</code>，看图：</p>
+<p><img src="http://ww3.sinaimg.cn/large/7e67578bjw1ercc9y37k4j218g0p0k1z.jpg" alt="">  </p>
+<p>按 <code>ctrl+1</code>触发<code>hint</code>模式，按程序图标上的字母就可以切换到相应的程序或窗口，狂拽酷炫吊炸天。  </p>
+<h4 id="grid-网格"><a href="#grid-网格" class="headerlink" title="grid  网格"></a>grid  网格</h4><pre><code>bind g:cmd grid padding:5 0:2,2 1:2,1
+bind 1:ctrl grid padding:5 1680x1050:16,9 1050x1680:9,16
+</code></pre><p><code>padding:5</code> ：grid 网格中格子线的宽度，不用修改，可忽略。  </p>
+<p><code>0:2,2 1:2,1</code>: 第一个屏幕（左边屏幕）显示2x2的网格，就是把屏幕分成4份；第二个屏幕显示2x1的网格，屏幕分成了两份。</p>
+<p><img src="http://ww4.sinaimg.cn/large/7e67578bjw1erccuju98lj218g0p0k5p.jpg" alt="">  </p>
+<p><img src="http://ww4.sinaimg.cn/large/7e67578bjw1erccv30hgdj21kw0zk7d7.jpg" alt="">  </p>
+<p>鼠标控制，类似于<code>Moom</code>，触发<code>grid</code>模式后，用鼠标控制窗口位置和大小。点哪个网格，窗口就分配到那个网格中。  </p>
+<p>知道我为什么说<code>Slate</code>是这些窗口管理软件的爹了吧。  </p>
+<h4 id="relaunch"><a href="#relaunch" class="headerlink" title="relaunch"></a>relaunch</h4><p>重新载入<code>.slate</code>文件。似乎不起作用  </p>
+<h4 id="undo-重来"><a href="#undo-重来" class="headerlink" title="undo  重来"></a>undo  重来</h4><pre><code>bind z:ctrl undo
+</code></pre><p>执行窗口变换后，想退回去原来的状态，用<code>undo</code>。</p>
+<p><span id="jump"></span></p>
+<h2 id="我的-slate文件"><a href="#我的-slate文件" class="headerlink" title="我的.slate文件"></a>我的<code>.slate</code>文件</h2><pre><code># quakex 的 slate 配置文件  
+
+# Global Configs 全局配置  
+config defaultToCurrentScreen true
+# show icons &amp; letters on all windows w/ Window Hints
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+# Show a positioning grid for each monitor
+bind g:cmd grid padding:5 0:2,2 1:2,1       #将第一个窗口分成4份，第二分成两份
+
+# Monitor Aliases
+alias mon-left 0                # 外接左边的显示器
+alias mon-macbook 1             # 笔记本屏幕
+
+# General aliases
+alias hyper cmd;ctrl            # 组合键
+alias sox screenOriginX 
+alias soy screenOriginY
+alias ssx screenSizeX
+alias ssy screenSizeY
+
+# Abstract positions  相对位置  
+alias centered           ${sox}+${ssx}/8;${soy}+${ssy}/8 ${ssx}/8*6;${ssy}/8*6
+alias fullscreen         ${sox};${soy} ${ssx};${ssy}
+alias leftHalf           ${sox};${soy} ${ssx}/2;${ssy}
+alias bottomHalf         ${sox};${soy}+${ssy}/2 ${ssx};${ssy}/2
+alias topHalf            ${sox};${soy} ${ssx};${ssy}/2
+alias rightHalf          ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}
+alias topLeftQuarter     ${sox};${soy} ${ssx}/2;${ssy}/2
+alias topRightQuarter    ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}/2
+alias bottomLeftQuarter  ${sox};${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+alias bottomRightQuarter ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
+alias topThird           ${sox};${soy} ${ssx};${ssy}/3
+alias leftThird          ${sox};${soy} ${ssx}/3;${ssy}
+alias bottomThird        ${sox};${soy}+${ssy}/3 ${ssx};${ssy}/3
+alias rightThird         ${sox}+${ssx}/3*2;${soy} ${ssx}/3;${ssy}
+
+# Concrete positions  具体位置  
+alias 1-full        move ${sox};${soy} ${ssx};${ssy}                ${mon-macbook}
+alias 1-left        move ${sox};${soy} ${ssx}/2;${ssy}              ${mon-macbook}
+alias 1-right       move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}     ${mon-macbook}
+alias 1-rightThird  move ${sox}+${ssx}/3*2;${soy} ${ssx}/3;${ssy}   ${mon-macbook}
+alias 2-left        move ${sox};${soy} ${ssx}/2;${ssy}              ${mon-left}
+alias 2-right       move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}     ${mon-left}
+alias 2-righttop    move ${sox}+${ssx}/2;${soy} ${ssx}/2;${ssy}/2   ${mon-left}
+alias 2-rightbottom move ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2       ${mon-left}
+alias 2-rightThird  move ${sox}+${ssx}/3*2;${soy} ${ssx}/3;${ssy}   ${mon-left}
+
+# 2 Monitor layout  两个显示器时的 layout
+layout 2monitors &apos;iTerm&apos;:REPEAT             ${2-rightbottom} | ${1-left}
+layout 2monitors &apos;Safari&apos;:REPEAT            ${1-full}
+layout 2monitors &apos;Sublime Text 2&apos;:REPEAT    ${2-right}
+layout 2monitors &apos;MacVim&apos;:REPEAT            ${2-left} | ${2-right}
+layout 2monitors &apos;Mail&apos;:REPEAT              ${2-left}
+layout 2monitors &apos;Finder&apos;:REPEAT            ${2-righttop}
+layout 2monitors &apos;Xcode&apos;:REPEAT             ${1-full}
+layout 2monitors &apos;iTunes&apos;:REPEAT            ${1-full}
+layout 2monitors &apos;Skim&apos;:REPEAT              ${2-right}
+layout 2monitors &apos;nvALT&apos;:REPEAT             ${2-rightThird}
+
+# 1 Monitor layout 一个显示器时的布局  
+layout 1monitor &apos;iTerm&apos;:REPEAT              ${1-right}
+layout 1monitor &apos;Sublime Text 2&apos;:REPEAT     ${1-left}
+layout 1monitor &apos;MacVim&apos;:REPEAT             ${1-left} | ${1-right}
+layout 1monitor &apos;Safari&apos;:REPEAT             ${1-full}
+layout 1monitor &apos;Mail&apos;:REPEAT               ${1-full}
+layout 1monitor &apos;Finder&apos;:REPEAT             ${1-full}
+layout 1monitor &apos;Xcode&apos;:REPEAT              ${1-full}
+layout 1monitor &apos;iTunes&apos;:REPEAT             ${1-full}
+layout 1monitor &apos;Skim&apos;:REPEAT               ${1-full}
+layout 1monitors &apos;nvALT&apos;:REPEAT             ${1-rightThird}
+
+# Default Layouts
+default 2monitors resolutions:1680x1050;2560x1600
+default 1monitor  resolutions:2560x1600
+
+bind 1:${hyper} layout 1monitor
+bind 2:${hyper} layout 2monitors
+
+# Bindings 模拟 Vim 控制窗口位置  
+bind g:${hyper} move ${centered}            #ctrl+cmd+g 将窗口居中
+bind o:${hyper} move ${fullscreen}          #ctrl+cmd+o 全屏  
+bind h:${hyper} move ${leftHalf}
+bind j:${hyper} move ${bottomHalf}
+bind k:${hyper} move ${topHalf}
+bind l:${hyper} move ${rightHalf}
+bind u:${hyper} move ${topLeftQuarter}
+bind i:${hyper} move ${topRightQuarter}
+bind n:${hyper} move ${bottomLeftQuarter}
+bind m:${hyper} move ${bottomRightQuarter}
+bind y:${hyper} move ${leftThird}
+bind p:${hyper} move ${rightThird}
+
+# Resize Bindings
+bind right:alt;ctrl       resize +10% +0
+bind left:alt;ctrl        resize -10% +0
+bind up:alt;ctrl          resize +0   -10%
+bind down:alt;ctrl        resize +0   +10%
+
+# Nudge Bindings
+bind right:shift;alt        nudge +10% +0
+bind left:shift;alt         nudge -10% +0
+bind up:shift;alt           nudge +0   -10%
+bind down:shift;alt         nudge +0   +10%
+
+# Throw Bindings
+bind [:${hyper} throw 0 resize:${ssx};${ssy}  
+bind ]:${hyper} throw 1 resize:${ssx};${ssy}  
+
+# Window Hints
+bind esc:cmd hint ASDFGQWERTZXCVBN
+
+# relaunch .slate 
+bind s:${hyper} relaunch
+
+# Focus Bindings
+bind right:${hyper}    focus right
+bind left:${hyper}     focus left
+bind up:${hyper}       focus up
+bind down:${hyper}     focus down
+
+# undo 
+bind z:${hyper} undo
+
+# App bindings
+alias hyperApp alt;ctrl
+alias editor &apos;MacVim&apos;
+alias browser &apos;Safari&apos;
+bind e:${hyperApp} focus ${browser}
+bind v:${hyperApp} focus ${editor}
+bind x:${hyperApp} focus &apos;Xcode&apos;
+bind g:${hyperApp} focus &apos;GitHub&apos;
+bind m:${hyperApp} focus &apos;Mail&apos;
+bind i:${hyperApp} focus &apos;iTerm&apos;
+bind f:${hyperApp} focus &apos;Finder&apos;
+</code></pre><p>你可以用默认的<code>.slate</code>配置文件，也可以用我的。拷贝到你的<code>~/</code>目录下，试一下每一个快捷键，感受一下，稍加熟悉，你就会喜欢上<code>Slate</code>这个神器的。  </p>
+<p>成文仓促，不足之处，请原谅。  </p>
+<p>欢迎转载，请注明出处就可以了。  </p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>写 blog 好处多多，发了这篇文章后，很快就有朋友回复，介绍了和<code>Slate</code>类似的另一个神器：<a href="http://www.hammerspoon.org" target="_blank" rel="external">Hammerspoon</a>，配置文件用的是<code>lua</code>。</p>
+<p>这里也有一篇中文介绍文章，来自<a href="https://songchenwen.github.io" target="_blank" rel="external">宋辰文</a>同学,<br><a href="https://songchenwen.github.io/tech/2015/04/02/hammerspoon-mac-window-manager/" target="_blank" rel="external">Hammerspoon, OS X 上的全能窗口管理器</a></p>
+<p>分享就有收获。  </p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tools/" rel="tag">#tools</a>
+          
+            <a href="/tags/MacOSX/" rel="tag">#MacOSX</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/23/Man-s-situation/" rel="next" title="知乎好文--《人的格局》">
+                <i class="fa fa-chevron-left"></i> 知乎好文--《人的格局》
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/04/20/how-to-focus/" rel="prev" title="怎样专注">
+                怎样专注 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/04/10/Slate-使用指南/"
+           data-title="Slate 使用指南" data-url="http://quakex.github.io/2015/04/10/Slate-使用指南/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="徐林" />
+          <p class="site-author-name" itemprop="name">徐林</p>
+          <p class="site-description motion-element" itemprop="description">专注失败二十年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/quakexx" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> twitter
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mac-下的窗口管理软件"><span class="nav-number">1.</span> <span class="nav-text">Mac 下的窗口管理软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Slate-简介"><span class="nav-number">2.</span> <span class="nav-text">Slate 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用-Slate-可以做哪些事"><span class="nav-number">2.1.</span> <span class="nav-text">用 Slate 可以做哪些事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Slate"><span class="nav-number">2.2.</span> <span class="nav-text">安装 Slate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-Slate"><span class="nav-number">2.3.</span> <span class="nav-text">配置 Slate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置参数和指令"><span class="nav-number">2.4.</span> <span class="nav-text">配置参数和指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Expressions-属性"><span class="nav-number">2.4.1.</span> <span class="nav-text">Expressions  属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作符"><span class="nav-number">2.5.</span> <span class="nav-text">操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config-指令"><span class="nav-number">2.6.</span> <span class="nav-text">config 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alias-指令"><span class="nav-number">2.7.</span> <span class="nav-text">alias 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layout-指令"><span class="nav-number">2.8.</span> <span class="nav-text">layout 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#default-指令"><span class="nav-number">2.9.</span> <span class="nav-text">default 指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-指令"><span class="nav-number">2.10.</span> <span class="nav-text">bind 指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#key"><span class="nav-number">2.10.1.</span> <span class="nav-text">key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#modifiers-控制键"><span class="nav-number">2.10.2.</span> <span class="nav-text">modifiers 控制键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modal-Key"><span class="nav-number">2.10.3.</span> <span class="nav-text">Modal Key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operation-操作"><span class="nav-number">2.10.4.</span> <span class="nav-text">Operation 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Screens-屏幕"><span class="nav-number">2.10.4.1.</span> <span class="nav-text">Screens 屏幕</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#move-移动窗口"><span class="nav-number">2.10.4.2.</span> <span class="nav-text">move 移动窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resize"><span class="nav-number">2.10.4.3.</span> <span class="nav-text">resize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#push"><span class="nav-number">2.10.4.4.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nudge-移动窗口"><span class="nav-number">2.10.4.5.</span> <span class="nav-text">nudge  移动窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#throw-将窗口移动到指定屏幕"><span class="nav-number">2.10.4.6.</span> <span class="nav-text">throw  将窗口移动到指定屏幕</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#corner"><span class="nav-number">2.10.4.7.</span> <span class="nav-text">corner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shell-执行-shell-命令"><span class="nav-number">2.10.4.8.</span> <span class="nav-text">shell  执行 shell 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hide-show-toggle-隐藏、显示和切换窗口"><span class="nav-number">2.10.4.9.</span> <span class="nav-text">hide show toggle  隐藏、显示和切换窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chain-星云锁链"><span class="nav-number">2.10.4.10.</span> <span class="nav-text">chain  星云锁链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sequence-斗转星移"><span class="nav-number">2.10.4.11.</span> <span class="nav-text">sequence  斗转星移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout-指定布局"><span class="nav-number">2.10.4.12.</span> <span class="nav-text">layout  指定布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#focus-聚焦窗口"><span class="nav-number">2.10.4.13.</span> <span class="nav-text">focus  聚焦窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#snapshot-delete-snapshot-activate-snapshot-快照功能"><span class="nav-number">2.10.4.14.</span> <span class="nav-text">snapshot delete-snapshot activate-snapshot 快照功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hint-星际穿越"><span class="nav-number">2.10.4.15.</span> <span class="nav-text">hint  星际穿越</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#grid-网格"><span class="nav-number">2.10.4.16.</span> <span class="nav-text">grid  网格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#relaunch"><span class="nav-number">2.10.4.17.</span> <span class="nav-text">relaunch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undo-重来"><span class="nav-number">2.10.4.18.</span> <span class="nav-text">undo  重来</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的-slate文件"><span class="nav-number">2.11.</span> <span class="nav-text">我的.slate文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">3.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐林</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"quakex"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

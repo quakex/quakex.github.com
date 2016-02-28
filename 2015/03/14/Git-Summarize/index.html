@@ -1,0 +1,910 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="程序员第一步不是学编程，而是学Git。你看，我就一直在学Git。所以，我的人生写照就是：专注入门二十年。  
+学习Git的好资料
+廖雪峰的Git教程 最浅显易懂的Git教程  
+
+Pro Git 最权威的Git教程  
+
+看日记学Git 实战型Git教程  
+
+Git 简明指南 就是简明  
+
+图解Git 一图解千言  
+
+GotGitHub 《Git权威指南》作者蒋鑫关于GitHub的书">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 总结">
+<meta property="og:url" content="http://quakex.github.io/2015/03/14/Git-Summarize/index.html">
+<meta property="og:site_name" content="徐林的博客">
+<meta property="og:description" content="程序员第一步不是学编程，而是学Git。你看，我就一直在学Git。所以，我的人生写照就是：专注入门二十年。  
+学习Git的好资料
+廖雪峰的Git教程 最浅显易懂的Git教程  
+
+Pro Git 最权威的Git教程  
+
+看日记学Git 实战型Git教程  
+
+Git 简明指南 就是简明  
+
+图解Git 一图解千言  
+
+GotGitHub 《Git权威指南》作者蒋鑫关于GitHub的书">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/7e67578bjw1eq5cletw72j20cq06iaa8.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/7e67578bgw1eq7wvoy43sj211q0mawhy.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/7e67578bgw1eq7wu663f8j20y40ggwg6.jpg">
+<meta property="og:updated_time" content="2015-06-25T09:50:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 总结">
+<meta name="twitter:description" content="程序员第一步不是学编程，而是学Git。你看，我就一直在学Git。所以，我的人生写照就是：专注入门二十年。  
+学习Git的好资料
+廖雪峰的Git教程 最浅显易懂的Git教程  
+
+Pro Git 最权威的Git教程  
+
+看日记学Git 实战型Git教程  
+
+Git 简明指南 就是简明  
+
+图解Git 一图解千言  
+
+GotGitHub 《Git权威指南》作者蒋鑫关于GitHub的书">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/7e67578bjw1eq5cletw72j20cq06iaa8.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Git 总结 | 徐林的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">徐林的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git 总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-03-14T09:57:49+08:00" content="2015-03-14">
+              2015-03-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/14/Git-Summarize/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/14/Git-Summarize/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>程序员第一步不是学编程，而是学Git。你看，我就一直在学Git。所以，我的人生写照就是：专注入门二十年。  </p>
+<h1 id="学习Git的好资料"><a href="#学习Git的好资料" class="headerlink" title="学习Git的好资料"></a>学习Git的好资料</h1><ol>
+<li><p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的Git教程</a> 最浅显易懂的Git教程  </p>
+</li>
+<li><p><a href="http://git.oschina.net/progit/" target="_blank" rel="external">Pro Git</a> 最权威的Git教程  </p>
+</li>
+<li><p><a href="http://roclinux.cn/?page_id=3775" target="_blank" rel="external">看日记学Git</a> 实战型Git教程  </p>
+</li>
+<li><p><a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="external">Git 简明指南</a> 就是简明  </p>
+</li>
+<li><p><a href="http://marklodato.github.io/visual-git-guide/index-zh-cn.html" target="_blank" rel="external">图解Git</a> 一图解千言  </p>
+</li>
+<li><p><a href="http://www.worldhello.net/gotgithub/" target="_blank" rel="external">GotGitHub</a> 《Git权威指南》作者蒋鑫关于GitHub的书  </p>
+</li>
+</ol>
+<p>有了这些，你不用再看下面的了，下面是写给我自己看的，为了应对我的健忘症。</p>
+<a id="more"></a>   
+<h1 id="需要记住的-Git-知识点"><a href="#需要记住的-Git-知识点" class="headerlink" title="需要记住的 Git 知识点"></a>需要记住的 Git 知识点</h1><h2 id="各种撤销"><a href="#各种撤销" class="headerlink" title="各种撤销"></a>各种撤销</h2><h3 id="情况一：修改了文件"><a href="#情况一：修改了文件" class="headerlink" title="情况一：修改了文件"></a>情况一：修改了文件</h3><p>修改文件。修改的是工作区的文件。觉得本次修改是坨翔，不想要了。肿么办？ </p>
+<pre><code>git checkout -- 刚刚修改的文件  
+</code></pre><p>这句话的意思是把这个文件在工作区的修改全部取消。  </p>
+<p><strong><code>git checkout</code>其实是用版本库或stage里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</strong>  </p>
+<p><strong>总之，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</strong></p>
+<h3 id="情况二：git-add-了"><a href="#情况二：git-add-了" class="headerlink" title="情况二：git add 了"></a>情况二：git add 了</h3><p>修改了文件，并且还<code>git add</code> 了，想反悔了，肿么办？<br>反操作：<code>git reset HEAD file</code>或<code>git reset -- file</code> 可以把暂存区的修改撤销掉（unstage），<strong>重新放回工作区。</strong>  </p>
+<p><code>git reset</code>命令既可以回退版本，也可以把暂存区的修改回退到工作区。</p>
+<p>这里要注意的是：如果<code>git add</code>后，又修改了文件，那么<code>git reset</code>后两次修改是都存在的，或者说，所有的修改都在。  </p>
+<h3 id="情况三：git-commit-了"><a href="#情况三：git-commit-了" class="headerlink" title="情况三：git commit 了"></a>情况三：git commit 了</h3><p>修改了文件，不仅<code>git add</code> 了，还<code>git commit</code>了，想反悔，肿么办？<br>反操作：<code>git reset --hard 你要恢复的版本commit_id</code><br>常用的：<code>HEAD^</code> 上一个版本，<code>HEAD^^</code> 上两个， <code>HEAD~100</code> 上100个。<br>这里比较重要的一点就是，只要你能找到commit id， 就可以恢复到这个commit的状态。如何找到这个id？Git 提供了一个命令<code>git reflog</code>用来记录你的每一次命令。  </p>
+<h3 id="情况四：git-commit后，马上反悔了"><a href="#情况四：git-commit后，马上反悔了" class="headerlink" title="情况四：git commit后，马上反悔了"></a>情况四：git commit后，马上反悔了</h3><pre><code>git commit --amend
+</code></pre><p>Git的世界有各种后悔药，多么美好啊，要是人生能git就好了。  </p>
+<h2 id="三个区：工作区，暂存区，库存区"><a href="#三个区：工作区，暂存区，库存区" class="headerlink" title="三个区：工作区，暂存区，库存区"></a>三个区：工作区，暂存区，库存区</h2><p><img src="http://ww3.sinaimg.cn/large/7e67578bjw1eq5cletw72j20cq06iaa8.jpg" alt=""></p>
+<p>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</p>
+<h2 id="git-checkout-比你想象的重要得多"><a href="#git-checkout-比你想象的重要得多" class="headerlink" title="git checkout 比你想象的重要得多"></a>git checkout 比你想象的重要得多</h2><p><strong>checkout命令用于从历史提交（或者暂存区域）中拷贝文件到工作目录，也可用于切换分支。</strong></p>
+<h2 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h2><p><img src="http://ww2.sinaimg.cn/large/7e67578bgw1eq7wvoy43sj211q0mawhy.jpg" alt=""></p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p><img src="http://ww1.sinaimg.cn/large/7e67578bgw1eq7wu663f8j20y40ggwg6.jpg" alt=""></p>
+<h2 id="远程库"><a href="#远程库" class="headerlink" title="远程库"></a>远程库</h2><ol>
+<li>先在github上手工建立一个repo。</li>
+<li><p>关联一个远程库。</p>
+<p> $ git remote add origin git@github.com:quakex/gitRepo.git</p>
+</li>
+<li><p>推送本机内容至远程库  </p>
+<p> $ git push -u origin master  </p>
+</li>
+</ol>
+<p>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><ol>
+<li><p>新建一个分支并切换  </p>
+<p> $ git checkout -b dev</p>
+</li>
+<li><p>查看当前分支  <code>git branch</code></p>
+</li>
+<li><p><code>git merge</code> 用于合并<strong>指定分支</strong>到当前分支。默认是Fast-forward 合并，直接修改指针。  </p>
+</li>
+<li><p>删除分支：<code>git branch -d dev</code>  </p>
+</li>
+</ol>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><ol>
+<li>Git用&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;标记出不同分支的内容。  </li>
+<li><p>查看分支合并图    </p>
+<pre><code>$ git log --graph --pretty=oneline --abbrev-commit
+</code></pre></li>
+</ol>
+<h3 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h3><p>通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。</p>
+<p>如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息，能看出曾经做过的合并。</p>
+<pre><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; dev
+</code></pre><h4 id="分支管理基本原则"><a href="#分支管理基本原则" class="headerlink" title="分支管理基本原则"></a>分支管理基本原则</h4><p>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
+<p>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</p>
+<p>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</p>
+<h4 id="Bug-分支"><a href="#Bug-分支" class="headerlink" title="Bug 分支"></a>Bug 分支</h4><p>在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。  </p>
+<p>Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：<code>git stash</code>  </p>
+<p>首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支：</p>
+<pre><code>$ git checkout master
+Switched to branch &apos;master&apos;
+Your branch is ahead of &apos;origin/master&apos; by 6 commits.
+$ git checkout -b issue-101
+Switched to a new branch &apos;issue-101&apos;
+</code></pre><p>修复完成后，切换到master分支，并完成合并，最后删除issue-101分支：  </p>
+<pre><code>$ git checkout master
+$ git merge --no-ff -m &quot;merged bug fix 101&quot;
+$ git branch -d issue-101  
+</code></pre><p>返回原来的工作现场：</p>
+<pre><code>$ git stash pop  
+</code></pre><p>你可以多次stash，恢复的时候，先用<code>git stash list</code>查看，然后恢复指定的<code>stash</code>  </p>
+<h4 id="Feature-分支"><a href="#Feature-分支" class="headerlink" title="Feature 分支"></a>Feature 分支</h4><p>添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
+<p>开发一个新feature，最好新建一个分支；</p>
+<p>如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。</name></p>
+<h4 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h4><p>查看远程库信息，使用<code>git remote -v</code>；</p>
+<p>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
+<p>从本地推送分支，使用<code>git push origin branch-name</code>，如果推送失败，先用<code>git pull</code>抓取远程的新提交；</p>
+<p>在本地创建和远程分支对应的分支，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致；</p>
+<p>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</p>
+<p>从远程抓取分支，使用<code>git pull</code>，如果有冲突，要先处理冲突。</p>
+<h2 id="独立开发者使用-git-的情形"><a href="#独立开发者使用-git-的情形" class="headerlink" title="独立开发者使用 git 的情形"></a>独立开发者使用 git 的情形</h2><pre><code>$ tar -xzvf mypro.tat.gz
+$ cd  mypro
+$ git init
+$ git add .
+$ git commit -m “important of mypro source tree.” 
+$ git tag v2.43 //给这个 commit 起了一个简单的名字 v2.43
+
+  下面我们建立分支并继续开发:
+$ git checkout -b alsa-audio //-b 用于建立一个新的分支,分支名称为 alsa-audio,并且转移到此分支
+...(开发/编译/测试)
+$ git checkout — curses/ux_audio_oss.c //用于取消对 curses/ux_audio_oss.c 文件的修改
+$ git add curses/ux_audio_alsa.c //如果你在这一阶段的开发过程中增加了新文件,那么你应该用 git-add 告知 git 仓库,当然, 如果你只是修改或删除,那么使用 git-commit -a 就可以让 git 查觉到了。
+...(开发/编译/测试)
+$ git diff HEAD //查看一下我们即将 commit 的内容 
+$ git commit -a -s //提交
+...(开发/编译/测试)
+$ git reset –soft HEAD^ //回复到上一次 commit 的代码。–soft 选项表示不改动 index file 和 working tree 中的内容
+...(开发/编译/测试)
+$ git diff ORIG_HEAD //look at the changes since the premature commit we took back(此句不太懂) 
+$ git commit -a -c ORIG_HEAD //重新提交,-c ORIG_HEAD 表示使用原有的提交信息
+$ git checkout master
+$ git merge alsa-audio
+$ git log –since=’3 days ago’
+$ git log v2.43.. curses/ //查看自从 v2.43 以来的 curses 目录下的代码变化信息
+</code></pre><p>合作开发:</p>
+<pre><code>git-clone:复制别人的 git 仓库到本地
+git-pull 和 git-fetch:保持和别人的 git 仓库的同步更新 
+git-push:共享方式。等同于 CVS 方式下的共享。 
+git-format-patch:利用邮件形式提交补丁。等同于内核开发方式。
+</code></pre>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag">#git</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/13/Swift-中的-和/" rel="next" title="Swift 中的 ! 和 ? ">
+                <i class="fa fa-chevron-left"></i> Swift 中的 ! 和 ? 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/16/Beginning-iPhone-Development-with-Swift-note/" rel="prev" title="《Beginning iPhone Development with Swift》笔记（未完待续）">
+                《Beginning iPhone Development with Swift》笔记（未完待续） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/03/14/Git-Summarize/"
+           data-title="Git 总结" data-url="http://quakex.github.io/2015/03/14/Git-Summarize/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="徐林" />
+          <p class="site-author-name" itemprop="name">徐林</p>
+          <p class="site-description motion-element" itemprop="description">专注失败二十年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/quakexx" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> twitter
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#学习Git的好资料"><span class="nav-number">1.</span> <span class="nav-text">学习Git的好资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#需要记住的-Git-知识点"><span class="nav-number">2.</span> <span class="nav-text">需要记住的 Git 知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#各种撤销"><span class="nav-number">2.1.</span> <span class="nav-text">各种撤销</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情况一：修改了文件"><span class="nav-number">2.1.1.</span> <span class="nav-text">情况一：修改了文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况二：git-add-了"><span class="nav-number">2.1.2.</span> <span class="nav-text">情况二：git add 了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况三：git-commit-了"><span class="nav-number">2.1.3.</span> <span class="nav-text">情况三：git commit 了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况四：git-commit后，马上反悔了"><span class="nav-number">2.1.4.</span> <span class="nav-text">情况四：git commit后，马上反悔了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三个区：工作区，暂存区，库存区"><span class="nav-number">2.2.</span> <span class="nav-text">三个区：工作区，暂存区，库存区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-checkout-比你想象的重要得多"><span class="nav-number">2.3.</span> <span class="nav-text">git checkout 比你想象的重要得多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-diff"><span class="nav-number">2.4.</span> <span class="nav-text">git diff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">2.5.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程库"><span class="nav-number">2.6.</span> <span class="nav-text">远程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支"><span class="nav-number">2.7.</span> <span class="nav-text">分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">2.7.1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决冲突"><span class="nav-number">2.7.2.</span> <span class="nav-text">解决冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支管理策略"><span class="nav-number">2.7.3.</span> <span class="nav-text">分支管理策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分支管理基本原则"><span class="nav-number">2.7.3.1.</span> <span class="nav-text">分支管理基本原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bug-分支"><span class="nav-number">2.7.3.2.</span> <span class="nav-text">Bug 分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Feature-分支"><span class="nav-number">2.7.3.3.</span> <span class="nav-text">Feature 分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多人协作"><span class="nav-number">2.7.3.4.</span> <span class="nav-text">多人协作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#独立开发者使用-git-的情形"><span class="nav-number">2.8.</span> <span class="nav-text">独立开发者使用 git 的情形</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐林</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"quakex"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

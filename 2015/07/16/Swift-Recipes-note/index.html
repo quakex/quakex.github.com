@@ -1,0 +1,899 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="note,swift," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="chap 1 Swift ProgrammingDealing with Stringsconvert a string to a number   
+整数：    String.toInt  
+浮点数：  
+var formatter = NSNumberFormatter()
+var doubleResult = formatter.numberFromString(&amp;quot;40.25&amp;q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift Recipes note">
+<meta property="og:url" content="http://quakex.github.io/2015/07/16/Swift-Recipes-note/index.html">
+<meta property="og:site_name" content="徐林的博客">
+<meta property="og:description" content="chap 1 Swift ProgrammingDealing with Stringsconvert a string to a number   
+整数：    String.toInt  
+浮点数：  
+var formatter = NSNumberFormatter()
+var doubleResult = formatter.numberFromString(&amp;quot;40.25&amp;q">
+<meta property="og:updated_time" content="2015-10-04T15:39:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift Recipes note">
+<meta name="twitter:description" content="chap 1 Swift ProgrammingDealing with Stringsconvert a string to a number   
+整数：    String.toInt  
+浮点数：  
+var formatter = NSNumberFormatter()
+var doubleResult = formatter.numberFromString(&amp;quot;40.25&amp;q">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Swift Recipes note | 徐林的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">徐林的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Swift Recipes note
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-07-16T16:00:52+08:00" content="2015-07-16">
+              2015-07-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/16/Swift-Recipes-note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/16/Swift-Recipes-note/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="chap-1-Swift-Programming"><a href="#chap-1-Swift-Programming" class="headerlink" title="chap 1 Swift Programming"></a>chap 1 Swift Programming</h1><h2 id="Dealing-with-Strings"><a href="#Dealing-with-Strings" class="headerlink" title="Dealing with Strings"></a>Dealing with Strings</h2><p>convert a string to a number   </p>
+<p>整数：<br>    String.toInt  </p>
+<p>浮点数：  </p>
+<pre><code>var formatter = NSNumberFormatter()
+var doubleResult = formatter.numberFromString(&quot;40.25&quot;)?.doubleValue  
+</code></pre><p>更通用的做法：  </p>
+<pre><code>extension String{
+    func toDouble() -&gt; Double? {
+        var formatter = NSNumberFormatter()
+        return formatter.numberFromString(self)?.doubleValue
+        }
+    }  
+
+&quot;100.001&quot;.toDouble()
+</code></pre><a id="more"></a> 
+<h2 id="Formatting-Numbers-as-Strings"><a href="#Formatting-Numbers-as-Strings" class="headerlink" title="Formatting Numbers as Strings"></a>Formatting Numbers as Strings</h2><p>格式化：</p>
+<pre><code>var time = String(format:&quot;The time is %02d:%02d&quot;, 8, 18)
+
+%d  %u  %f  %e  
+</code></pre><h2 id="Getting-the-Length-of-a-Swift-String"><a href="#Getting-the-Length-of-a-Swift-String" class="headerlink" title="Getting the Length of a Swift String"></a>Getting the Length of a Swift String</h2><p>似乎有点麻烦。  </p>
+<p>用时再研究。  </p>
+<h2 id="Manipulating-Swift-Strings"><a href="#Manipulating-Swift-Strings" class="headerlink" title="Manipulating Swift Strings"></a>Manipulating Swift Strings</h2><ul>
+<li><p>查找替换字符串  </p>
+<p>  testString.stringByReplacingOccurrencesOfString(“red”, withString: “blue”)</p>
+</li>
+</ul>
+<pre><code>testString.stringByReplacingOccurrencesOfString(&quot;the&quot;, withString: &quot;blue&quot;, options: NSStringCompareOptions.CaseInsensitiveSearch, range: Range&lt;String.Index&gt;(start:(testString.startIndex),end:advance(testString.startIndex, 10)))
+</code></pre><p><code>&lt;String.Index&gt;</code>的用法要注意，有点奇怪。  </p>
+<pre><code>var r = Range&lt;String.Index&gt;(start:advance(str.startIndex, 6),end:advance(str.startIndex, 6))
+&quot;I like pizza.&quot;.stringByReplacingCharactersInRange(r, withString: &quot; hot&quot;)
+</code></pre><p>Range 的作用是指定要替换的范围。  </p>
+<p>上面的这些都是 ObjC 的方法啊！！！！</p>
+<h2 id="Native-Swift-String-Methods"><a href="#Native-Swift-String-Methods" class="headerlink" title="Native Swift String Methods"></a>Native Swift String Methods</h2><pre><code>str[str.startIndex...advance(str.startIndex,13)]
+
+prefix(str,9)
+suffix(str, 3)
+isEmpty(str)
+count(str)  
+</code></pre><h2 id="Stroring-Strings-on-iOS"><a href="#Stroring-Strings-on-iOS" class="headerlink" title="Stroring Strings on iOS"></a>Stroring Strings on iOS</h2><ul>
+<li>使用 <code>writeToFile</code> 方法  </li>
+</ul>
+<p>首先要找到写入路径： NSSearchPathForDirectoriesInDomains </p>
+<pre><code>let filename = &quot;SwiftText.txt&quot;
+
+// iOS File Path Code
+let directories:[String]? = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String]
+
+var directory:String
+var fullPath:String = &quot;&quot;
+
+if let directories = directories{
+    directory = directories[0];
+    fullPath = directory.stringByAppendingPathComponent(filename)
+} else {
+    println(&quot;Error:Could not determine the documents directory path.&quot;)
+    abort()
+}
+
+let alphabet = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
+var error:NSError?
+alphabet.writeToFile(fullPath, atomically: false, encoding: NSUTF8StringEncoding, error: &amp;error)
+
+if let err = error{
+    println(&quot;Error reading file:\(err.description)&quot;)
+}
+</code></pre><h2 id="Reading-a-Text-File-into-a-String"><a href="#Reading-a-Text-File-into-a-String" class="headerlink" title="Reading a Text File into a String"></a>Reading a Text File into a String</h2><p>使用 <code>stringWithContentsOfFile</code>  </p>
+<pre><code>let text = String(contentsOfFile:fullPath, encoding:NSUTF8StringEncoding, error:&amp;error)
+</code></pre><p>注意错误处理。</p>
+<h2 id="Reading-and-writing-text-file-in-Cocoa"><a href="#Reading-and-writing-text-file-in-Cocoa" class="headerlink" title="Reading and writing text file in Cocoa"></a>Reading and writing text file in Cocoa</h2><p>和前面一样，更简单。  </p>
+<pre><code>let fullPath = &quot;/tmp/SwiftText.txt&quot;
+
+var error:NSError?
+
+var text = String(contentsOfFile:fullPath, encoding:NSUTF8StringEncoding,error:&amp;error)
+
+if let err = error {
+    println
+    }
+</code></pre><h2 id="Dealing-with-Numbers"><a href="#Dealing-with-Numbers" class="headerlink" title="Dealing with Numbers"></a>Dealing with Numbers</h2><p>就是 <code>\</code></p>
+<h2 id="Dealing-with-Dates"><a href="#Dealing-with-Dates" class="headerlink" title="Dealing with Dates"></a>Dealing with Dates</h2><p>设计一个 Date 类。输入字符串或 Int ，返回格式化后的 NSDate.  </p>
+<p>出错了，找不到原因。找到了，类方法前要加 class。低级错误。</p>
+<h3 id="About-Dates-and-Times"><a href="#About-Dates-and-Times" class="headerlink" title="About Dates and Times"></a>About Dates and Times</h3><p><code>NSDate</code> allows you to represent an absolute point in time.  </p>
+<p><code>NSCalendar</code> allows you to represent a particular calendar, such as a Gregorian or Hebrew calendar. It provides the interface for most date-based calculations and allows you to convert between NSDate objects and NSDateComponents objects.  </p>
+<p><code>NSDateComponents</code> allows you to represent the components of a particular date, such as hour, minute, day, year, and so on.</p>
+<h4 id="Dates"><a href="#Dates" class="headerlink" title="Dates"></a>Dates</h4><p>a point in time is usually represented by a combination of a clock time and a day on a particular calendar </p>
+<p>NSDate computes time as seconds relative to an absolute reference time: the first instant of January 1, 2001, Greenwich Mean Time (GMT).   </p>
+<pre><code>NSTimeInterval secondsPerDay = 24 * 60 * 60;
+NSDate *tomorrow = [[NSDate alloc]
+        initWithTimeIntervalSinceNow:secondsPerDay];
+
+tomorrow = [today dateByAddingTimeInterval: secondsPerDay];
+
+if (fabs([date2 timeIntervalSinceDate:date1]) &lt; 60) ...  
+</code></pre><h1 id="chap-2-Complex-Types"><a href="#chap-2-Complex-Types" class="headerlink" title="chap 2 Complex Types"></a>chap 2 Complex Types</h1><h2 id="2-4-Initializing-Class-Properties"><a href="#2-4-Initializing-Class-Properties" class="headerlink" title="2-4 Initializing Class Properties"></a>2-4 Initializing Class Properties</h2><p>如果没有init(), 就必须在定义Properties 时就初始化。  </p>
+<p>或者实现init().在init 里也要对Properties 进行初始化。  </p>
+<p>最好实现带参数的init.  </p>
+<h2 id="2-7-implementing-Protocols"><a href="#2-7-implementing-Protocols" class="headerlink" title="2-7 implementing Protocols"></a>2-7 implementing Protocols</h2><p>Protocols 的作用是什么？  </p>
+<p>Properties 在protocols 的作用是什么？  </p>
+<p>新建protocol， 设计属性、func。  </p>
+<p>新建一个类 遵守该属性。</p>
+<p>新建另一个类，该类有一个变量遵守protocol，且有一个func是调用的该protocol的方法。  </p>
+<p>该变量初始化为上面新建的类，调用方法。  </p>
+<p>很是纠结是吧？理解就好。  </p>
+<h2 id="2-8-Setting-Property-Observers"><a href="#2-8-Setting-Property-Observers" class="headerlink" title="2-8 Setting Property Observers"></a>2-8 Setting Property Observers</h2><pre><code>willSet didSet
+</code></pre><h2 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h2><p>有类型。<br>    enum Measure：Int </p>
+<h2 id="Structures"><a href="#Structures" class="headerlink" title="Structures"></a>Structures</h2><p>结构最需要注意的就是 implicit initializers，类没有这个，这个是structure特有的。然而这并没有什么卵用，一般还是要自己实现的。   </p>
+<h1 id="chap-3-collection"><a href="#chap-3-collection" class="headerlink" title="chap 3 collection"></a>chap 3 collection</h1><h2 id="3-3-处理数组中的元素"><a href="#3-3-处理数组中的元素" class="headerlink" title="3-3 处理数组中的元素"></a>3-3 处理数组中的元素</h2><p>vehicles.append(“bla”)<br>vehicles.insert(“bla”, atIndex:1)</p>
+<h2 id="search-for-items-in-an-array"><a href="#search-for-items-in-an-array" class="headerlink" title="search for items in an array"></a>search for items in an array</h2><pre><code>var vehicles = [&quot;car&quot;, &quot;bus&quot;, &quot;truck&quot;, &quot;plane&quot;]
+var matches = vehicles.filter({c in c == &quot;Car&quot;})
+</code></pre><h2 id="Sorting-an-Array"><a href="#Sorting-an-Array" class="headerlink" title="Sorting an Array"></a>Sorting an Array</h2><pre><code>ComplexArray.sort({p1,p2 in p1.year &lt; p2.year})
+</code></pre><h2 id="Saving-an-Array-to-the-File-System"><a href="#Saving-an-Array-to-the-File-System" class="headerlink" title="Saving an Array to the File System"></a>Saving an Array to the File System</h2><pre><code>writeToFile(fullPath, atomically:true)
+
+var ingredients = NSArray(contentsOfFile:fullPath) as [String]?
+</code></pre><h2 id="Using-Subscripts"><a href="#Using-Subscripts" class="headerlink" title="Using Subscripts"></a>Using Subscripts</h2><p>实现subscript 方法即可。  </p>
+<h1 id="chap-4-Advanced-swift-programming"><a href="#chap-4-Advanced-swift-programming" class="headerlink" title="chap 4 Advanced swift programming"></a>chap 4 Advanced swift programming</h1><h2 id="write-closure"><a href="#write-closure" class="headerlink" title="write closure"></a>write closure</h2><p>syntax：  </p>
+<pre><code>{(
+optinal parameter list 
+) -&gt; optinal return type in statements
+}
+</code></pre><h2 id="Generic-Classes"><a href="#Generic-Classes" class="headerlink" title="Generic Classes"></a>Generic Classes</h2><p>有类型的地方用T表示就可以了。   </p>
+<pre><code>class LIFOStack&lt;T&gt;
+{
+    var items: [T]
+    init () {
+        items = [T]()
+    }
+}
+</code></pre><h2 id="dates-and-times"><a href="#dates-and-times" class="headerlink" title="dates and times"></a>dates and times</h2><p>NSDateFormatter()<br>然后可以设置各种style。然后使用stringFromDate。  </p>
+<h1 id="chap-6-iOS-Applications"><a href="#chap-6-iOS-Applications" class="headerlink" title="chap 6  iOS Applications"></a>chap 6  iOS Applications</h1><h2 id="add-UILabel"><a href="#add-UILabel" class="headerlink" title="add UILabel"></a>add UILabel</h2><pre><code>var label = UILabel(frame:CGRect(x:10, y:50, width:200, height:20))
+label.text = &quot;bla&quot;
+view.addSubview(label)
+</code></pre><h2 id="add-UIButton"><a href="#add-UIButton" class="headerlink" title="add UIButton"></a>add UIButton</h2><pre><code>button.addTarget(self, action:Selector(&quot;tapped:&quot;), forControlEvent:UIControlEvents.TouchUpInside)
+</code></pre><h2 id="手动-constraints"><a href="#手动-constraints" class="headerlink" title="手动 constraints"></a>手动 constraints</h2><p>有点麻烦，没有必要的说 </p>
+<pre><code>NSLayoutConstraint.constraintsWithVisualFormat()
+</code></pre>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/note/" rel="tag">#note</a>
+          
+            <a href="/tags/swift/" rel="tag">#swift</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/15/Cocoa-Programming-for-OS-X-笔记/" rel="next" title="Cocoa Programming for OS X 笔记">
+                <i class="fa fa-chevron-left"></i> Cocoa Programming for OS X 笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/19/鼠鬚管折騰指南/" rel="prev" title="鼠鬚管折騰指南">
+                鼠鬚管折騰指南 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/07/16/Swift-Recipes-note/"
+           data-title="Swift Recipes note" data-url="http://quakex.github.io/2015/07/16/Swift-Recipes-note/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="徐林" />
+          <p class="site-author-name" itemprop="name">徐林</p>
+          <p class="site-description motion-element" itemprop="description">专注失败二十年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/quakexx" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> twitter
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/quakex" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#chap-1-Swift-Programming"><span class="nav-number">1.</span> <span class="nav-text">chap 1 Swift Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dealing-with-Strings"><span class="nav-number">1.1.</span> <span class="nav-text">Dealing with Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Formatting-Numbers-as-Strings"><span class="nav-number">1.2.</span> <span class="nav-text">Formatting Numbers as Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Getting-the-Length-of-a-Swift-String"><span class="nav-number">1.3.</span> <span class="nav-text">Getting the Length of a Swift String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Manipulating-Swift-Strings"><span class="nav-number">1.4.</span> <span class="nav-text">Manipulating Swift Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Native-Swift-String-Methods"><span class="nav-number">1.5.</span> <span class="nav-text">Native Swift String Methods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stroring-Strings-on-iOS"><span class="nav-number">1.6.</span> <span class="nav-text">Stroring Strings on iOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reading-a-Text-File-into-a-String"><span class="nav-number">1.7.</span> <span class="nav-text">Reading a Text File into a String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reading-and-writing-text-file-in-Cocoa"><span class="nav-number">1.8.</span> <span class="nav-text">Reading and writing text file in Cocoa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dealing-with-Numbers"><span class="nav-number">1.9.</span> <span class="nav-text">Dealing with Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dealing-with-Dates"><span class="nav-number">1.10.</span> <span class="nav-text">Dealing with Dates</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#About-Dates-and-Times"><span class="nav-number">1.10.1.</span> <span class="nav-text">About Dates and Times</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dates"><span class="nav-number">1.10.1.1.</span> <span class="nav-text">Dates</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chap-2-Complex-Types"><span class="nav-number">2.</span> <span class="nav-text">chap 2 Complex Types</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-Initializing-Class-Properties"><span class="nav-number">2.1.</span> <span class="nav-text">2-4 Initializing Class Properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-implementing-Protocols"><span class="nav-number">2.2.</span> <span class="nav-text">2-7 implementing Protocols</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-Setting-Property-Observers"><span class="nav-number">2.3.</span> <span class="nav-text">2-8 Setting Property Observers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enum"><span class="nav-number">2.4.</span> <span class="nav-text">enum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Structures"><span class="nav-number">2.5.</span> <span class="nav-text">Structures</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chap-3-collection"><span class="nav-number">3.</span> <span class="nav-text">chap 3 collection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-处理数组中的元素"><span class="nav-number">3.1.</span> <span class="nav-text">3-3 处理数组中的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#search-for-items-in-an-array"><span class="nav-number">3.2.</span> <span class="nav-text">search for items in an array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorting-an-Array"><span class="nav-number">3.3.</span> <span class="nav-text">Sorting an Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Saving-an-Array-to-the-File-System"><span class="nav-number">3.4.</span> <span class="nav-text">Saving an Array to the File System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-Subscripts"><span class="nav-number">3.5.</span> <span class="nav-text">Using Subscripts</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chap-4-Advanced-swift-programming"><span class="nav-number">4.</span> <span class="nav-text">chap 4 Advanced swift programming</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#write-closure"><span class="nav-number">4.1.</span> <span class="nav-text">write closure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generic-Classes"><span class="nav-number">4.2.</span> <span class="nav-text">Generic Classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dates-and-times"><span class="nav-number">4.3.</span> <span class="nav-text">dates and times</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chap-6-iOS-Applications"><span class="nav-number">5.</span> <span class="nav-text">chap 6  iOS Applications</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#add-UILabel"><span class="nav-number">5.1.</span> <span class="nav-text">add UILabel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#add-UIButton"><span class="nav-number">5.2.</span> <span class="nav-text">add UIButton</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手动-constraints"><span class="nav-number">5.3.</span> <span class="nav-text">手动 constraints</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">徐林</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"quakex"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
