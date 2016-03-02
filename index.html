@@ -232,6 +232,122 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/02/rails-new-password-error/" itemprop="url">
+                  解决 `rails new projet` 需要输入密码的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-02T10:11:27+08:00" content="2016-03-02">
+              2016-03-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/rails/" itemprop="url" rel="index">
+                    <span itemprop="name">rails</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/02/rails-new-password-error/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/02/rails-new-password-error/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>每次rails new 执行到bundle install 后总提示需要输入root密码，而且需要输入多次，很是麻烦。<br>以前解决方法是: <code>sudo !!</code>。</p>
+<p>现在的方法：</p>
+<p>$ rails new new_project –skip-bundle<br>让 rails new 后不直接运行 <code>bundle install</code></p>
+<p>进入 new_project 目录，运行：<br>$ bundle install –path vendor/bundle<br>这一句的意思是把 gems 安装到 vendor/bundle 下而不是系统的 gems 安装目录中。  </p>
+<p>如果你的 gem 镜像改为 ruby.taobao.org，可能会遇到有些包需要重新安装而这些包淘宝又没有，需要重新加 <code>rubygems.org</code>源。</p>
+<p>$ gem source -add <a href="https://rubygems.org" target="_blank" rel="external">https://rubygems.org</a> </p>
+<p>似乎把问题变复杂了，但输入root密码并不是件很好的事。  </p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/01/Rails-bootstrap-alert/" itemprop="url">
                   Rails 通知功能的实现
                 </a>
@@ -689,119 +805,6 @@ var doubleResult = formatter.numberFromString(&quot;40.25&quot;)?.doubleValue
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/07/15/Cocoa-Programming-for-OS-X-笔记/" itemprop="url">
-                  Cocoa Programming for OS X 笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-07-15T08:50:53+08:00" content="2015-07-15">
-              2015-07-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/dev/" itemprop="url" rel="index">
-                    <span itemprop="name">dev</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/07/15/Cocoa-Programming-for-OS-X-笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/15/Cocoa-Programming-for-OS-X-笔记/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>厚的读薄，薄的读厚</strong>，用<strong>费曼学习法</strong>来看书。  </p>
-<h1 id="chap-1-开始"><a href="#chap-1-开始" class="headerlink" title="chap 1 开始"></a>chap 1 开始</h1><p>生成密码的程序，很简单，但也有很多细节要注意。  </p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/15/Cocoa-Programming-for-OS-X-笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -848,7 +851,7 @@ var doubleResult = formatter.numberFromString(&quot;40.25&quot;)?.doubleValue
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
