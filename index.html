@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion">
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -72,7 +72,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Muse',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -209,6 +209,135 @@
 
     
     
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/01/Rails-bootstrap-alert/" itemprop="url">
+                  Rails 通知功能的实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-01T14:45:37+08:00" content="2016-03-01">
+              2016-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/rails/" itemprop="url" rel="index">
+                    <span itemprop="name">rails</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/01/Rails-bootstrap-alert/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/01/Rails-bootstrap-alert/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>看<a href="http://courses.growthschool.com/courses/rails-101" target="_blank" rel="external">rails101</a>教程，里面关于通知功能的实现非常好，总结一下。</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="第一步：修改application-js文件"><a href="#第一步：修改application-js文件" class="headerlink" title="第一步：修改application.js文件"></a>第一步：修改application.js文件</h3><p>添加：</p>
+<pre><code>+//= require bootstrap/alert  
+</code></pre><h3 id="第二步：写一个helper辅助方法"><a href="#第二步：写一个helper辅助方法" class="headerlink" title="第二步：写一个helper辅助方法"></a>第二步：写一个helper辅助方法</h3><p>新建 <code>app/helpers/application_helper.rb</code> 文件。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">    module ApplicationHelper</span><br><span class="line">      def notice_message</span><br><span class="line">       alert_types = &#123; notice: :success, alert: :danger &#125;</span><br><span class="line">    </span><br><span class="line">       close_button_options = &#123; class: "close", "data-dismiss" =&gt; "alert", "ria-hidden" =&gt; true &#125;</span><br><span class="line">       close_button = content_tag(:button, "×", close_button_options)</span><br><span class="line">    </span><br><span class="line">       alerts = flash.map do |type, message|</span><br><span class="line">         alert_content = close_button + message</span><br><span class="line">    </span><br><span class="line">         alert_type = alert_types[type.to_sym] || type</span><br><span class="line">         alert_class = "alert alert-#&#123;alert_type&#125; alert-dismissable"</span><br><span class="line">    </span><br><span class="line">         content_tag(:div, alert_content, class: alert_class)</span><br><span class="line">       end</span><br><span class="line">    </span><br><span class="line">       alerts.join("\n").html_safe</span><br><span class="line">     end</span><br><span class="line">    end</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">### 第三步：把 notice_message 放进 application.html.erb 里面 </span><br><span class="line"></span><br><span class="line">放在最上层即可。</span><br><span class="line"></span><br><span class="line">``` html</span><br><span class="line">&lt;div class="container-fluid"&gt;</span><br><span class="line">&lt;%= render "common/navbar" %&gt;</span><br><span class="line">&lt;!-- 把 notice_message 放進 application.html.erb 裡面 --&gt;</span><br><span class="line">&lt;%= notice_message%&gt;    </span><br><span class="line">&lt;%= yield %&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+  flash[<span class="symbol">:notice</span>] = <span class="string">"早安！你好！"</span></span><br><span class="line">+  flash[<span class="symbol">:warning</span>] = <span class="string">"這是 warning 訊息！"</span></span><br><span class="line">+  flash[<span class="symbol">:alert</span>] = <span class="string">"晚安！該睡了！"</span></span><br></pre></td></tr></table></figure>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>有篇很好的 <a href="http://kakas-blog.logdown.com/posts/286448-rails101-chapter3-notice-message" target="_blank" rel="external">blog</a> 讲了这个问题。</p>
+<p><strong>不多说了，归根结底一句话：ruby =&gt; html.</strong></p>
+<h3 id="bootstrap-alert-的定义"><a href="#bootstrap-alert-的定义" class="headerlink" title="bootstrap alert 的定义"></a>bootstrap alert 的定义</h3><blockquote>
+<p>警告框组件通过提供一些灵活的预定义消息，为常见的用户动作提供反馈消息。</p>
+<p><strong>将任意文本和一个可选的关闭按钮组合在一起就能组成一个警告框</strong>，.alert 类是必须要设置的，另外我们还提供了有特殊意义的4个类（例如，.alert-success），代表不同的警告信息。</p>
+</blockquote>
+<p>要实现<strong>可关闭的警告框</strong>需要：  </p>
+<p>为警告框添加一个可选的 <code>.alert-dismissible</code>类和一个关闭按钮。</p>
+<p><strong>notice_message 的作用就是把ruby代码转换成bootstrap的HTML代码。</strong></p>
+<p>看一下bootstrap代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"alert alert-warning alert-dismissible"</span> <span class="attr">role</span>=<span class="string">"alert"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"close"</span> <span class="attr">data-dismiss</span>=<span class="string">"alert"</span> <span class="attr">aria-label</span>=<span class="string">"Close"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span>&amp;times;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Warning!<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> Better check yourself, you're not looking too good.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="content-tag-函数"><a href="#content-tag-函数" class="headerlink" title="content_tag 函数"></a>content_tag 函数</h3><p>看几个例子你就明白它的用法了。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">content_tag(:p, "Hello world!")</span><br><span class="line"> # =&gt; <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">content_tag(:div, content_tag(:p, "Hello world!"), class: "strong")</span><br><span class="line"> # =&gt; <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"strong"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">content_tag(:div, "Hello world!", class: ["strong", "highlight"])</span><br><span class="line"> # =&gt; <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"strong highlight"</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">content_tag("select", options, multiple: true)</span><br><span class="line"> # =&gt; <span class="tag">&lt;<span class="name">select</span> <span class="attr">multiple</span>=<span class="string">"multiple"</span>&gt;</span>...options...<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">content_tag</span> <span class="attr">:div</span>, <span class="attr">class:</span> "<span class="attr">strong</span>" <span class="attr">do</span> <span class="attr">-</span>%&gt;</span></span><br><span class="line">  Hello world!</span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">end</span> <span class="attr">-</span>%&gt;</span></span><br><span class="line"> # =&gt; <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"strong"</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>明白了吧？</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -687,120 +816,6 @@ var doubleResult = formatter.numberFromString(&quot;40.25&quot;)?.doubleValue
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/21/kill-weibo/" itemprop="url">
-                  为什么刷微博？
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-06-21T23:38:34+08:00" content="2015-06-21">
-              2015-06-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/思考/" itemprop="url" rel="index">
-                    <span itemprop="name">思考</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/06/21/kill-weibo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/21/kill-weibo/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天值班，本来有大段的时间可以学习，却什么也没干。不停的刷微博，上网，看八卦。中午时，思考了一下，为什么会这样？为什么刷微博会上瘾？很简单，和磕瓜子是一个道理：因为简单，反馈快还有快感。赌博、炒股也是这个道理，所以一旦开始就根本停不下来，因为这种极短的快感会让你的大脑非常舒适，分泌产生快感的多巴胺，然后产生依赖，就<strong>成瘾</strong>了。最后的结果就是时间不知不觉的流逝了，而你只干了一堆无聊的事。而且你明知道这是在浪费时间，却无法控制自己。  </p>
-<p>要戒掉这种低级的、快餐式的、毫无营养的行为还是有点难度的，毕竟懒惰、贪享受是人的天性。一旦成瘾，要戒断是非常困难的，需要对大脑有非常强的控制，看看戒烟、戒毒的人的痛苦模样你就知道了，这绝对是场攻坚战、持久战。怎么办？还好，我只是戒网，戒社交，不会要了我们的命。尝试<strong>断网</strong>，减少这些刺激，着手做稍复杂的事情，比如看本书，看一段程序，或写一段代码。找到让你的大脑更快乐的事情，并且有意义，产生更高级的多巴胺。如果也能成瘾，那你就成功了。历史上的成功人士大多如此，献身科学的科学家为什么献身啊，因为科研产生多巴胺啊；独裁者为什么独裁啊？因为权利产生多巴胺啊；追求不同的东西，产生不同的快感，快感是什么？就是多巴胺。什么成功学，其实就是多巴胺学，因为我们人类归根结底还是动物，我们是会思考的动物，但有时思考再多，也敌不过身体的需要。『嘴上说不要，身体却很诚实嘛。』讲的就是这个道理。哈哈。  </p>
-<p>我们一生要学会的是<strong>『控制自己的大脑，而不是被大脑控制』</strong>，这个简单的道理，能做到的并不多。我们每个人的脑子里都有一个不听话、懒惰的自我，它让我们人舒适、懒散，也让我们一事无成，我们对它一筹莫展，认识它，接受它，和它做朋友，不要想着杀死它。我们并不能离开它，它是我们身体的一部分，会伴随到我们死亡，有些时候我们也非常需要它，一直紧绷的大脑也会崩溃的，多巴胺是大脑的营养剂。但决不能让它时时控制我们，因为我们每个人还有社会属性，需要我们养家糊口，传宗接代，完成社会主义建设，为人类的繁衍和富强做贡献，完成我们该完成的角色。你也可以像『月亮与六便士』里的画家成仙，不管不顾，一切随性。我们是常人，做不到的。我们只能试试和它沟通，让它少出来捣乱，等我们完成我们的社会任务，等我们老了，就可以做些随性的事，比如去趟东莞。    </p>
-<p>时不时要动动已经生锈的脑袋，思考一下人生还是很有必要的。说了这么多，却好像什么都没说，懂得那么多道理，却依然过不好这一生。</p>
-<p>因为这里是我扯淡的地方。哈哈。</p>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -847,7 +862,7 @@ var doubleResult = formatter.numberFromString(&quot;40.25&quot;)?.doubleValue
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -855,7 +870,7 @@ var doubleResult = formatter.numberFromString(&quot;40.25&quot;)?.doubleValue
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -864,7 +879,7 @@ var doubleResult = formatter.numberFromString(&quot;40.25&quot;)?.doubleValue
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -942,7 +957,7 @@ var doubleResult = formatter.numberFromString(&quot;40.25&quot;)?.doubleValue
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
@@ -985,6 +1000,13 @@ var doubleResult = formatter.numberFromString(&quot;40.25&quot;)?.doubleValue
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
 
   
 
