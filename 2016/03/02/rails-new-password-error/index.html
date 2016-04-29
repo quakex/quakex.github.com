@@ -57,25 +57,34 @@
 
 
 
-<meta name="description" content="每次rails new 执行到bundle install 后总提示需要输入root密码，而且需要输入多次，很是麻烦。以前解决方法是: sudo !!。
+<meta name="description" content="每次rails new 执行到bundle install 后总提示需要输入root密码，而且需要输入多次，很是麻烦。  
+以前解决方法是: sudo !!。
 现在的方法：
-$ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle install
-进入 new_project 目录，运行：$ bundle install –path ve">
+$ rails new new_project --skip-bundle 
+让 rails new 后不直接运行 bundle install
+进入 new_project 目录，运行：
+$ bundle install -">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决 `rails new projet` 需要输入密码的问题">
+<meta property="og:title" content="解决 "rails new projet" 需要输入密码的问题">
 <meta property="og:url" content="http://quakex.github.io/2016/03/02/rails-new-password-error/index.html">
 <meta property="og:site_name" content="徐林的博客">
-<meta property="og:description" content="每次rails new 执行到bundle install 后总提示需要输入root密码，而且需要输入多次，很是麻烦。以前解决方法是: sudo !!。
+<meta property="og:description" content="每次rails new 执行到bundle install 后总提示需要输入root密码，而且需要输入多次，很是麻烦。  
+以前解决方法是: sudo !!。
 现在的方法：
-$ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle install
-进入 new_project 目录，运行：$ bundle install –path ve">
-<meta property="og:updated_time" content="2016-03-02T02:27:11.000Z">
+$ rails new new_project --skip-bundle 
+让 rails new 后不直接运行 bundle install
+进入 new_project 目录，运行：
+$ bundle install -">
+<meta property="og:updated_time" content="2016-03-02T02:51:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决 `rails new projet` 需要输入密码的问题">
-<meta name="twitter:description" content="每次rails new 执行到bundle install 后总提示需要输入root密码，而且需要输入多次，很是麻烦。以前解决方法是: sudo !!。
+<meta name="twitter:title" content="解决 "rails new projet" 需要输入密码的问题">
+<meta name="twitter:description" content="每次rails new 执行到bundle install 后总提示需要输入root密码，而且需要输入多次，很是麻烦。  
+以前解决方法是: sudo !!。
 现在的方法：
-$ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle install
-进入 new_project 目录，运行：$ bundle install –path ve">
+$ rails new new_project --skip-bundle 
+让 rails new 后不直接运行 bundle install
+进入 new_project 目录，运行：
+$ bundle install -">
 
 
 
@@ -93,7 +102,7 @@ $ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle in
   };
 </script>
 
-  <title> 解决 `rails new projet` 需要输入密码的问题 | 徐林的博客 </title>
+  <title> 解决 "rails new projet" 需要输入密码的问题 | 徐林的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -233,7 +242,7 @@ $ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle in
             
             
               
-                解决 `rails new projet` 需要输入密码的问题
+                解决 "rails new projet" 需要输入密码的问题
               
             
           </h1>
@@ -297,13 +306,17 @@ $ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle in
       
 
       
-        <p>每次rails new 执行到bundle install 后总提示需要输入root密码，而且需要输入多次，很是麻烦。<br>以前解决方法是: <code>sudo !!</code>。</p>
-<p>现在的方法：</p>
-<p>$ rails new new_project –skip-bundle<br>让 rails new 后不直接运行 <code>bundle install</code></p>
-<p>进入 new_project 目录，运行：<br>$ bundle install –path vendor/bundle<br>这一句的意思是把 gems 安装到 vendor/bundle 下而不是系统的 gems 安装目录中。  </p>
-<p>如果你的 gem 镜像改为 ruby.taobao.org，可能会遇到有些包需要重新安装而这些包淘宝又没有，需要重新加 <code>rubygems.org</code>源。</p>
-<p>$ gem source -add <a href="https://rubygems.org" target="_blank" rel="external">https://rubygems.org</a> </p>
-<p>似乎把问题变复杂了，但输入root密码并不是件很好的事。  </p>
+        <p>每次rails new 执行到bundle install 后总提示需要输入root密码，而且需要输入多次，很是麻烦。  </p>
+<p><strong>以前解决方法</strong>是: <code>sudo !!</code>。</p>
+<p><strong>现在的方法</strong>：</p>
+<pre><code>$ rails new new_project --skip-bundle 
+</code></pre><p>让 rails new 后不直接运行 <code>bundle install</code></p>
+<p>进入 new_project 目录，运行：</p>
+<pre><code>$ bundle install --path vendor/bundle  
+</code></pre><p>这一句的意思是把 gems 安装到 vendor/bundle 下而不是系统的 gems 安装目录中。  </p>
+<p>如果你的 gem 镜像改为 <code>ruby.taobao.org</code>，可能会遇到有些包需要重新安装而这些包淘宝又没有，需要重新加 <code>rubygems.org</code>源。</p>
+<pre><code>$ gem source -add https://rubygems.org 
+</code></pre><p>似乎把问题变复杂了，而且文件夹大小也变大很多，但输入root密码并不是件很好的事，而且妈妈从小告诉我：<strong>东西归类是好件好事。</strong></p>
 
       
     </div>
@@ -328,6 +341,10 @@ $ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle in
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/07/Rails-convention/" rel="prev" title="Rails 中的约定convention">
+                Rails 中的约定convention <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -354,7 +371,7 @@ $ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle in
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/03/02/rails-new-password-error/"
-           data-title="解决 `rails new projet` 需要输入密码的问题" data-url="http://quakex.github.io/2016/03/02/rails-new-password-error/">
+           data-title="解决 "rails new projet" 需要输入密码的问题" data-url="http://quakex.github.io/2016/03/02/rails-new-password-error/">
       </div>
     
   </div>
@@ -399,7 +416,7 @@ $ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle in
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -407,7 +424,7 @@ $ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle in
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -416,7 +433,7 @@ $ rails new new_project –skip-bundle让 rails new 后不直接运行 bundle in
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
